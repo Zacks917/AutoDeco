@@ -3,8 +3,6 @@ Official Implementation of "THE END OF MANUAL DECODING: TOWARDS TRULY END-TO-END
 
 **AutoDeco** is a framework that adds token-level adaptive decoding parameter prediction capabilities to Large Language Models (LLMs). By adding lightweight prediction heads on top of pre-trained models, AutoDeco can dynamically predict optimal temperature and top-p parameters for each token during decoding.
 
-**Key Innovation**: AutoDeco achieves complete end-to-end training using **only the standard cross-entropy loss** - no additional pre-label computing procedures required. The temperature and top-p heads are trained implicitly through the language modeling objective, making it simple to integrate into existing training pipelines.
-
 ## 🎯 Key Features
 
 - **Token-Level Decoding Parameter Prediction**: Dynamically predict decoding parameters (temperature and top-p) for each generated token
