@@ -53,6 +53,7 @@ We have released the AutoDeco Head below:
 - ✅ **Qwen2.5** (DeepSeek-R1-Distill-Qwen-7B)
 - ✅ **Qwen3** (Qwen3-8B)
 - ✅ **Qwen3-MoE** (Qwen3-30B-A3B-Instruct-2507)
+- ✅ **GPT-Oss** (GPT-Oss-20B, GPT-Oss-120B)
 - Other models supported by HuggingFace `AutoModelForCausalLM`
 
 Theoretically, any Transformer-based causal LM can be seamlessly integrated with AutoDeco.
@@ -140,16 +141,6 @@ python llm_eval.py \
 
 Training data should be in JSONL format, with one sample per line. AutoDeco supports standard conversation format:
 
-```json
-{
-  "messages": [
-    {"role": "user", "content": "Question content"},
-    {"role": "assistant", "content": "Answer content"}
-  ]
-}
-```
-
-Or direct prompt format:
 
 ```json
 {
@@ -207,25 +198,6 @@ Core training parameters are defined in `trl_train.py` through `TempLLMScriptArg
 
 When both are False, standard language model training (fine-tuning base model) is performed.
 
-### Loss Functions
-
-**Key Innovation: Single Cross-Entropy Loss for End-to-End Training**
-
-AutoDeco requires **only the standard cross-entropy loss** - no additional loss functions needed:
-
-#### Temperature Loss
-Uses temperature-scaled cross-entropy with implicit gradient flow:
-- Temperature head receives gradients through standard LM loss
-- For positions where the model already predicts correctly, randomly drop 60% to avoid overfitting
-- Weight the loss using the base model's confidence in the GT token
-- **No separate temperature loss function required**
-
-#### Top-P Loss (Soft)
-Uses the same cross-entropy loss with soft top-p sampling:
-- Smoothly clips probability distribution through exponential decay
-- Top-p head learns optimal thresholds through standard language modeling objective
-- **No separate regression loss needed** - gradients flow through cross-entropy
-- Both heads trained jointly with a single loss function
 
 ## 📊 Evaluation
 
