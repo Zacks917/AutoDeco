@@ -59,11 +59,11 @@ Theoretically, any Transformer-based causal LM can be seamlessly integrated with
 
 ## 🚀 Installation
 
-### Requirements
+### Recommended Requirements
 
-- Python >= 3.8
+- Python >= 3.10
 - PyTorch >= 2.0
-- CUDA >= 11.8 (recommended for training)
+- CUDA >= 12.0 (recommended for training)
 
 ### Install Dependencies
 
@@ -74,10 +74,10 @@ cd AutoDeco
 # Install core dependencies
 pip install torch transformers accelerate
 pip install datasets trl deepspeed
-pip install safetensors vllm
+pip install safetensors
 
 # Optional: for training monitoring
-pip install swanlab wandb
+pip install wandb
 ```
 
 ## 💡 Quick Start
