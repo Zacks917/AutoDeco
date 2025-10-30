@@ -37,15 +37,23 @@ During training, the base LLM parameters are frozen, and only the two prediction
 
 AutoDeco supports all current autoregressive LLMs, and we unified them with the following model architectures `AutoDecoModelForCausalLM` interface.
 
-We have released the AutoDeco Head below:
 
-- ✅ **Llama** (Llama 3.1-8B-Nemotron)
-- ✅ **Qwen2.5** (DeepSeek-R1-Distill-Qwen-7B)
-- ✅ **Qwen3-MoE** (Qwen3-30B-A3B-Instruct-2507)
-- ✅ **GPT-Oss** (GPT-Oss-20B, GPT-Oss-120B)
-- ✅ **DeepSeek** (DeepSeek-V3.1-Terminus 671B)
 
-Any transformer-based causal LM can be seamlessly integrated with AutoDeco.
+<div align="center">
+
+| **Base Model** | **#Base Params** | **#AutoDeco Params** | **Download** |
+| :------------: | :------------: | :------------: | :------------: |
+| Llama-3.1-Nemotron-Nano-8B-v1 | 8B | 2.1M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-Llama-Nemotron-8B)   |
+| DeepSeek-R1-Distill-Qwen-7B   | 7B | 1.84M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-R1-Distill-Qwen-7B)   |
+| Qwen3-30B-A3B-Instruct-2507   | 30B | 1.05M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-Qwen3-30B-A3B-Instruct-2507)   |
+| OpenAI-GPT-OSS-20B   | 20B | 1.48M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-GPT-Oss-20B)   |
+| OpenAI-GPT-OSS-120B   | 120B | - | Comming Soon  |
+| Qwen3-235B-A22B-Thinking   | 235B | - | Comming Soon  |
+| DeepSeek-V3.1-Terminus   | 671B | - | Comming Soon  |
+
+</div>
+
+
 
 ## 🚀 Installation
 
@@ -62,9 +70,7 @@ Any transformer-based causal LM can be seamlessly integrated with AutoDeco.
 cd AutoDeco
 
 # Install core dependencies
-pip install torch transformers accelerate
-pip install datasets trl deepspeed
-pip install safetensors
+pip install -r requirements.txt
 
 # Optional: for training monitoring
 pip install wandb

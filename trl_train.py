@@ -1,95 +1,3 @@
-# Copyright 2020-2025 The HuggingFace Team. All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-"""
-to hold
-python3 /apdcephfs_qy3/share_301812049/jettexu/scaling_rl/start/hold/gpu_util.py
-
-
-MODEL_NAME_OR_PATH='Qwen/Qwen3-0.6B'
-# Full training
-python trl/scripts/sft.py \
-    --model_name_or_path $MODEL_NAME_OR_PATH \
-    --dataset_name trl-lib/Capybara \
-    --learning_rate 2.0e-5 \
-    --num_train_epochs 1 \
-    --packing \
-    --per_device_train_batch_size 2 \
-    --gradient_accumulation_steps 8 \
-    --gradient_checkpointing \
-    --eos_token '<|im_end|>' \
-    --logging_steps 25 \
-    --eval_strategy steps \
-    --eval_steps 100 \
-    --output_dir ${MODEL_NAME_OR_PATH}-SFT \
-    --push_to_hub
-
-# training with accelerate
-# MODEL_NAME_OR_PATH='Qwen/Qwen3-8B'
-# TRAIN_FILE='data/train/trainingset/train.jsonl'
-
-MODEL_NAME_OR_PATH='Qwen/Qwen3-0.6B'
-TRAIN_FILE='trl-lib/Capybara'
-
-LOCAL_IP='127.0.0.1'
-accelerate launch --config_file scripts/accelerate_configs/deepspeed_zero3.yaml \
-    --num_processes 1 \
-    --num_machines 1 \
-    --main_process_ip $LOCAL_IP \
-    --main_process_port 29500 \
-    scripts/train_sft.py \
-    --model_name_or_path $MODEL_NAME_OR_PATH \
-    --dataset_name $TRAIN_FILE \
-    --torch_dtype float16 \
-    --completion_only_loss true \
-    --padding_free true \
-    --learning_rate 2.0e-5 \
-    --num_train_epochs 1 \
-    --packing \
-    --per_device_train_batch_size 1 \
-    --gradient_accumulation_steps 1 \
-    --gradient_checkpointing \
-    --eos_token '<|im_end|>' \
-    --logging_steps 25 \
-    --eval_strategy steps \
-    --eval_steps 100 \
-    --output_dir checkpoint/${MODEL_NAME_OR_PATH}-SFT
-
-    
-
-# LoRA
-python trl/scripts/sft.py \
-    --model_name_or_path Qwen/Qwen2-0.5B \
-    --dataset_name trl-lib/Capybara \
-    --learning_rate 2.0e-4 \
-    --num_train_epochs 1 \
-    --packing \
-    --per_device_train_batch_size 2 \
-    --gradient_accumulation_steps 8 \
-    --gradient_checkpointing \
-    --eos_token '<|im_end|>' \
-    --logging_steps 25 \
-    --eval_strategy steps \
-    --eval_steps 100 \
-    --use_peft \
-    --lora_r 32 \
-    --lora_alpha 16 \
-    --output_dir Qwen2-0.5B-SFT \
-    --push_to_hub
-"""
-
-
 from typing import Any, Optional, Union
 from dataclasses import dataclass
 
@@ -445,13 +353,15 @@ def main(script_args, training_args, model_args):
         print(f"[!] Error loading dataset: {e}")
         raise ValueError(f"Dataset {script_args.dataset_name} not found")
 
+    dataset['train'] = dataset['train'].select(range(50))
+
+    # dataset['train'] = dataset['train'][:100]
     if script_args.train_temp or script_args.train_top_p:
         print(f"[!] AutoDecoLLM Training")
         trainer = AutoDecoLLMTrainer(
         model=model,
         args=training_args,
         train_dataset=dataset[script_args.dataset_train_split],
-        eval_dataset=dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,
         data_collator=DataCollatorForLanguageModeling(pad_token_id=tokenizer.pad_token_id),
         peft_config=get_peft_config(model_args),
         )

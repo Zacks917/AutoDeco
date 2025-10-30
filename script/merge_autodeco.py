@@ -1,15 +1,4 @@
 #!/usr/bin/env python3
-"""
-AutoDeco Model Merge Script
-
-Merge trained AutoDeco heads with base model to create a complete checkpoint for vLLM deployment.
-
-Usage:
-    python merge_autodeco.py \\
-        --autodeco-checkpoint ./trained-autodeco \\
-        --base-model /path/to/base-model \\
-        --output ./autodeco-full
-"""
 
 import argparse
 import logging
@@ -643,16 +632,3 @@ Examples:
 
 if __name__ == "__main__":
     main()
-
-# Example usage:
-# 
-# Merge mode (heads + base → full checkpoint):
-# python merge_autodeco.py merge \
-#     --autodeco-path ./ckpt/R1-no-DFT-End2End-1-5e-6LR-1Epochs-12000Tokens-1BS-4 \
-#     --base-model-path ../models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \
-#     --output ./ckpt/R1-no-DFT-End2End-1-full
-#
-# Split mode (full checkpoint → heads only):
-# python merge_autodeco.py split \
-#     --full-checkpoint ./ckpt/R1-no-DFT-End2End-1-full \
-#     --output ./ckpt/R1-no-DFT-End2End-1-heads
