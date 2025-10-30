@@ -1,5 +1,5 @@
 # AutoDeco
-Official Implementation of "THE END OF MANUAL DECODING: TOWARDS TRULY END-TO-END LANGUAGE MODELS"
+Official Implementation of "The End of Manual Decoding: Towards Truly End-to-End Language Models"
 
 **AutoDeco** is a framework that adds token-level adaptive decoding parameter prediction capabilities to Large Language Models (LLMs). By adding lightweight prediction heads on top of pre-trained models, AutoDeco can dynamically predict optimal temperature and top-p parameters for each token during decoding.
 
@@ -10,17 +10,7 @@ Official Implementation of "THE END OF MANUAL DECODING: TOWARDS TRULY END-TO-END
 - **Universal Architecture**: Supports multiple mainstream LLM architectures (Llama, Qwen2/2.5, Qwen3, MoE models, etc.)
 - **End-to-End Training**: Complete training with implicit gradient backpropagation through cross-entropy loss only 
 - **Flexible Training**: Supports independent training of temperature head, top-p head, or joint training
-- **Efficient Deployment**: Only saves AutoDeco prediction head weights during training, merges with base model during Auto
-
-## 📋 Table of Contents
-
-- [Architecture](#architecture)
-- [Supported Models](#supported-models)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Training](#training)
-- [Evaluation](#evaluation)
-- [Project Structure](#project-structure)
+- **Efficient Deployment**: Only saves AutoDeco prediction head weights during training, merges with base model during decoding.
 
 ## 🏗️ Architecture
 
@@ -45,18 +35,17 @@ During training, the base LLM parameters are frozen, and only the two prediction
 
 ## 🤖 Supported Models
 
-AutoDeco supports all current LLMs, and we unified them with the following model architectures `AutoDecoModelForCausalLM` interface.
+AutoDeco supports all current autoregressive LLMs, and we unified them with the following model architectures `AutoDecoModelForCausalLM` interface.
 
 We have released the AutoDeco Head below:
 
 - ✅ **Llama** (Llama 3.1-8B-Nemotron)
 - ✅ **Qwen2.5** (DeepSeek-R1-Distill-Qwen-7B)
-- ✅ **Qwen3** (Qwen3-8B)
 - ✅ **Qwen3-MoE** (Qwen3-30B-A3B-Instruct-2507)
 - ✅ **GPT-Oss** (GPT-Oss-20B, GPT-Oss-120B)
-- Other models supported by HuggingFace `AutoModelForCausalLM`
+- ✅ **DeepSeek** (DeepSeek-V3.1-Terminus 671B)
 
-Theoretically, any Transformer-based causal LM can be seamlessly integrated with AutoDeco.
+Any transformer-based causal LM can be seamlessly integrated with AutoDeco.
 
 ## 🚀 Installation
 
@@ -83,27 +72,15 @@ pip install wandb
 
 ## 💡 Quick Start
 
-### 1. Load Pre-trained AutoDeco Model
+### Initialize AutoDeco Model
 
 ```python
-from model.templlm_auto import AutoDecoModelForCausalLM
-
-# Load from AutoDeco checkpoint (with trained heads)
-model = AutoDecoModelForCausalLM.from_pretrained(
-    "path/to/autodeco_checkpoint",
-    trust_remote_code=True
-)
-
-# Or create new AutoDeco model from base model
-model = AutoDecoModelForCausalLM.from_pretrained(
-    "meta-llama/Llama-3.1-8B",
-    train_temp=False,      # Don't train temperature head
-    train_top_p=False,     # Don't train top-p head
-    use_enhanced_features=True
-)
+python script/construct_autodeco.py \
+    --base_model_name_or_path path_to_your_base_LLM \
+    --output_dir path_to_your_AutoDeco_model
 ```
 
-### 2. Inference
+<!-- ### 2. Inference
 
 ```python
 from transformers import AutoTokenizer
@@ -122,18 +99,25 @@ outputs = model(**inputs)
 
 ### 3. Efficient Inference with vLLM
 
-AutoDeco can be integrated with vLLM for efficient batch inference:
+We have integrated AutoDeco with vLLM for efficient batch inference:
 
-```bash
-# Use training script for evaluation
-python llm_eval.py \
-    --model_name_or_path path/to/autodeco_model \
-    --dataset aime24 \
-    --temp 1.0 \
-    --top_p 1.0 \
-    --k 16 \
-    --tp_size 4
-```
+- Install vLLM from source code first
+    ```bash
+    cd vllm
+    pip install -e .
+    ```
+
+- Inference
+    ```bash
+    # Use training script for evaluation
+    python llm_eval.py \
+        --model_name_or_path path/to/autodeco_model \
+        --dataset aime24 \
+        --temp 1.0 \
+        --top_p 1.0 \
+        --k 16 \
+        --tp_size 4
+    ``` -->
 
 ## 🔥 Training
 
@@ -142,10 +126,16 @@ python llm_eval.py \
 Training data should be in JSONL format, with one sample per line. AutoDeco supports standard conversation format:
 
 
-```json
+```bash
 {
   "prompt": "formatted prompt text",
   "completion": "expected completion"
+}
+
+# example
+{
+  "prompt": "<|im_start|>user\nEvaluate the limit:$$\\lim_{(x, y) \\to (1, 2)} \\frac{(x-1)(y-2)-x+3}{x^2-2x+y^2-4}$$\nMake sure you output the final answer within \\boxed{}<|im_end|>\n< im_start>assistant\n",
+  "completion": "......### ✅ Final Answer:\n$$\n\\boxed{-1}\n$$""
 }
 ```
 
@@ -156,8 +146,8 @@ Use the provided training script:
 ```bash
 # Edit script/trl_train.sh to configure parameters
 # Key parameters:
-# - MODEL_NAME_OR_PATH: Base model path
-# - DATA_NAME: Training data filename (in data/shortest_reasoning/ directory)
+# - MODEL_NAME_OR_PATH: Your initialized AutoDeco Model Path
+# - DATA_NAME: Training data filename (in data directory)
 # - MAX_LENGTH: Maximum sequence length
 # - train_temp: Whether to train temperature head
 # - train_top_p: Whether to train top-p head
@@ -170,36 +160,16 @@ Training configuration examples:
 ```bash
 # Train only temperature head
 accelerate launch trl_train.py \
-    --model_name_or_path meta-llama/Llama-3.1-8B \
+    --model_name_or_path AutoDeco-Llama-3.1-8B \
     --dataset_name train_data.jsonl \
     --train_temp true \
     --train_top_p false \
     --learning_rate 5e-6 \
     --num_train_epochs 1 \
     --output_dir ckpt/llama3_temp_head
-
-# Joint training of both heads
-accelerate launch trl_train.py \
-    --model_name_or_path meta-llama/Llama-3.1-8B \
-    --dataset_name train_data.jsonl \
-    --train_temp true \
-    --train_top_p true \
-    --learning_rate 5e-6 \
-    --output_dir ckpt/llama3_autodeco
 ```
 
-### Training Parameters
-
-Core training parameters are defined in `trl_train.py` through `TempLLMScriptArguments`:
-
-- `--train_temp`: Whether to train temperature head (default: False)
-- `--train_top_p`: Whether to train top-p head (default: False)
-- `--use_enhanced_features`: Whether to use enhanced features in top-p head (default: True)
-
-When both are False, standard language model training (fine-tuning base model) is performed.
-
-
-## 📊 Evaluation
+## 📊 Inference
 
 ### Batch Evaluation with vLLM
 
@@ -222,28 +192,18 @@ Evaluation results are saved in the `generation_log/` directory, including:
 - Average accuracy
 - Detailed generation results for each sample
 
-### Supported Evaluation Datasets
-
-Evaluation data should be placed in the `data/TempTest/` directory in JSONL format:
-
-```json
-{
-  "problem": "Question text",
-  "gt": "Standard answer"
-}
+### Deploy with vLLM
+```bash
+# example
+vllm serve 
 ```
 
 ## 📁 Project Structure
-
 ```
 AutoDeco/
 ├── model/                          # Model definitions
 │   ├── templlm_auto.py            # Unified AutoDeco model (recommended)
-│   ├── templlm_llama.py           # Llama-specific implementation
-│   ├── templlm_qwen2_5.py         # Qwen2.5-specific implementation
-│   ├── templlm_qwen3.py           # Qwen3-specific implementation
-│   ├── templlm_qwen3_moe.py       # Qwen3-MoE-specific implementation
-│   └── temp_model.py              # Core component definitions
+definitions
 │
 ├── trainer/                        # Trainers
 │   └── trl_Temp.py                # AutoDeco trainer
@@ -251,8 +211,7 @@ AutoDeco/
 ├── script/                         # Scripts
 │   ├── trl_train.sh               # Training launch script
 │   ├── test_generation.sh         # Batch evaluation script
-│   ├── extract_heads.py           # Extract heads weights
-│   └── merge_head.py              # Merge heads to base model
+│   └── merge_autodeco.py          # Merge or split heads
 │
 ├── config/                         # Configuration files
 │   └── deepspeed/                 # DeepSpeed configuration
@@ -260,51 +219,35 @@ AutoDeco/
 │
 ├── trl_train.py                   # Training main program
 ├── llm_eval.py                    # Evaluation main program (vLLM)
-├── merge_autodeco.py              # Model merging script
 ├── boxed_extract.py               # Answer extraction tool
+├── requirements.txt               # requirements
 └── README.md                      # This document
+
 ```
 
 ## 🔧 Advanced Usage
 
-### 1. Extract AutoDeco Heads
-
-After training, you can save only the heads weights:
+### 1. Extract AutoDeco Heads from AutoDeco Model
 
 ```python
-from model.templlm_auto import AutoDecoModelForCausalLM
-
-model = AutoDecoModelForCausalLM.from_pretrained("ckpt/trained_model")
-
-# save_pretrained defaults to saving only heads
-model.save_pretrained("ckpt/autodeco_heads_only")
+python merge_autodeco.py split \
+    --full-checkpoint path_to_your_full_model \
+    --output path_to_split_head
 ```
 
 This generates a lightweight checkpoint (~5MB) containing:
 - `config.json`: AutoDeco configuration (including base_model_name_or_path)
 - `autodeco_heads.safetensors`: Heads weights
 
-### 2. Merge to Base Model (for vLLM Deployment)
+### 2. Merge AutoDeco Heads to Base Model (for vLLM Deployment)
 
 If you need to create a complete model file with heads for inference engines like vLLM:
 
-```bash
-python merge_autodeco.py \
-    --base_model path/to/base_model \
-    --heads_checkpoint path/to/autodeco_heads \
-    --output_dir path/to/merged_model
-```
-
-### 3. Custom Training Configuration
-
-Modify `config/deepspeed/deepspeed_zero3_gradaccu4.yaml` to adjust DeepSpeed configuration:
-
-```yaml
-compute_environment: LOCAL_MACHINE
-gradient_accumulation_steps: 4
-zero_stage: 3
-offload_optimizer_device: none
-offload_param_device: none
+```python
+python merge_autodeco.py merge \
+    --autodeco-path path_to_autodeco_heads \
+    --base-model-path path_to_base_LLM \
+    --output path_to_your_full_model
 ```
 
 
@@ -321,19 +264,26 @@ If you use AutoDeco in your research, please cite:
 }
 ```
 
-## 🤝 Contributing
-
-Welcome to submit Issues and Pull Requests!
-
-## 📄 License
-
-This project is licensed under the Apache 2.0 License. See LICENSE file for details.
-
-## 🙏 Acknowledgments
+<!-- ## Acknowledgments
 
 - Built on [Transformers](https://github.com/huggingface/transformers) and [TRL](https://github.com/huggingface/trl)
 - Training framework uses [DeepSpeed](https://github.com/microsoft/DeepSpeed)
-- Inference optimization uses [vLLM](https://github.com/vllm-project/vllm)
+- Inference optimization uses [vLLM](https://github.com/vllm-project/vllm) -->
 
 
  
+python script/merge_autodeco.py split \
+    --full-checkpoint Qwen3-30B-A3B-Instruct-2507-Stage2-5e-6LR-1Epochs-3000Tokens-1BS-4 \
+    --output AutoDeco-Qwen3-30B-A3B-Instruct-2507
+
+python script/merge_autodeco.py merge \
+    --autodeco-path AutoDeco-R1-Distill-Qwen-7B \
+    --base-model-path ../models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \
+    --output ./test_full
+
+python script/construct_autodeco.py \
+    --base_model_name_or_path ../models/openai/gpt-oss-20b \
+    --output_dir test-gpt
+
+
+huggingface-cli upload Jadeislaw/AutoDeco-Qwen3-30B-A3B-Instruct-2507 AutoDeco-Qwen3-30B-A3B-Instruct-2507 --token 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 --private

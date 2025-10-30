@@ -20,10 +20,10 @@ import shutil
 import fnmatch
 import json
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
+# Add project root (parent of this script directory) to sys.path for imports
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from model.templlm_auto import AutoDecoConfig, TempHead, TopPHead
+from model.templlm_auto import AutoDecoModelForCausalLMConfig
 from transformers import AutoModelForCausalLM, AutoConfig
 from huggingface_hub import split_torch_state_dict_into_shards
 
@@ -57,18 +57,18 @@ def merge_autodeco(
     
     # Step 1: Load AutoDeco config and heads
     logger.info(f"\nStep 1: Loading AutoDeco config and heads from: {autodeco_path}")
-    autodeco_config = AutoDecoConfig.from_pretrained(autodeco_path)
+    autodeco_config = AutoDecoModelForCausalLMConfig.from_pretrained(autodeco_path)
     
     logger.info(f"  - model_type: {autodeco_config.model_type}")
     logger.info(f"  - base_model_type: {autodeco_config.base_model_type}")
-    logger.info(f"  - train_temp: {autodeco_config.train_temp}")
-    logger.info(f"  - train_top_p: {autodeco_config.train_top_p}")
+    logger.info(f"  - train_temp: {autodeco_config.enable_temperature_head}")
+    logger.info(f"  - train_top_p: {autodeco_config.enable_top_p_head}")
     logger.info(f"  - use_enhanced_features: {autodeco_config.use_enhanced_features}")
     
     # Load heads weights
     checkpoint_path = Path(autodeco_path)
-    heads_safetensors = checkpoint_path / "autodeco_heads.safetensors"
-    heads_bin = checkpoint_path / "autodeco_heads.bin"
+    heads_safetensors = checkpoint_path / "model.safetensors"
+    heads_bin = checkpoint_path / "pytorch_model.bin"
     
     heads_state_dict = {}  # Will store flat dict with full keys (temp_head.*, top_p_head.*)
     
@@ -362,7 +362,7 @@ def split_autodeco(
     
     # Step 1: Load config
     logger.info(f"\nStep 1: Loading config from: {full_checkpoint_path}")
-    config = AutoDecoConfig.from_pretrained(full_checkpoint_path)
+    config = AutoDecoModelForCausalLMConfig.from_pretrained(full_checkpoint_path)
     
     if config.model_type != "autodeco":
         raise ValueError(f"Expected AutoDeco checkpoint, got model_type={config.model_type}")
@@ -370,8 +370,8 @@ def split_autodeco(
     logger.info(f"  ✓ Loaded AutoDeco config")
     logger.info(f"    - base_model_type: {config.base_model_type}")
     logger.info(f"    - base_model_name_or_path: {config.base_model_name_or_path}")
-    logger.info(f"    - train_temp: {config.train_temp}")
-    logger.info(f"    - train_top_p: {config.train_top_p}")
+    logger.info(f"    - train_temp: {config.enable_temperature_head}")
+    logger.info(f"    - train_top_p: {config.enable_top_p_head}")
     
     # Step 2: Load full checkpoint
     logger.info(f"\nStep 2: Loading full checkpoint weights...")
@@ -476,14 +476,14 @@ def split_autodeco(
     
     # Step 5: Save heads weights
     if save_format == "safetensors":
-        heads_file = output_path / "autodeco_heads.safetensors"
+        heads_file = output_path / "model.safetensors"
         from safetensors.torch import save_file
         save_file(heads_state_dict, heads_file, metadata={"format": "pt"})
-        logger.info(f"  ✓ Saved autodeco_heads.safetensors ({_get_size(heads_file)})")
+        logger.info(f"  ✓ Saved model.safetensors ({_get_size(heads_file)})")
     else:
-        heads_file = output_path / "autodeco_heads.bin"
+        heads_file = output_path / "pytorch_model.bin"
         torch.save(heads_state_dict, heads_file)
-        logger.info(f"  ✓ Saved autodeco_heads.bin ({_get_size(heads_file)})")
+        logger.info(f"  ✓ Saved pytorch_model.bin ({_get_size(heads_file)})")
     
     # Step 6: Optionally copy tokenizer files
     if copy_tokenizer:
@@ -544,30 +544,15 @@ def main():
 Examples:
 
 1. Merge (heads + base model → full checkpoint for vLLM):
-    python merge_autodeco.py merge \\
-        --autodeco-path ./trained-autodeco \\
-        --base-model-path /path/to/Qwen2.5-7B \\
-        --output ./autodeco-for-vllm
+    python merge_autodeco.py merge \
+        --autodeco-path  \
+        --base-model-path  \
+        --output 
 
 2. Split (full checkpoint → heads-only checkpoint):
-    python merge_autodeco.py split \\
-        --full-checkpoint ./ckpt/R1-no-DFT-End2End-5e-6LR-1Epochs-12000Tokens-1BS-4 \\
-        --output ./R1-autodeco
-
-Merge output structure:
-    autodeco-for-vllm/
-    ├── config.json
-    ├── model-00001-of-00003.safetensors    (~5GB)
-    ├── model-00002-of-00003.safetensors    (~5GB)
-    ├── model-00003-of-00003.safetensors    (~4GB)
-    ├── model.safetensors.index.json
-    └── tokenizer files...
-
-Split output structure:
-    autodeco-heads-only/
-    ├── config.json
-    ├── autodeco_heads.safetensors          (~5MB)
-    └── tokenizer files...
+    python merge_autodeco.py split \
+        --full-checkpoint  \
+        --output 
         """
     )
     

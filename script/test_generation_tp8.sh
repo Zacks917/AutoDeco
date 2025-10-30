@@ -37,7 +37,7 @@ echo "Starting tasks."
 
 # 总共9个任务：每批次运行2个任务（8个），最后1个单独跑
 pids=()
-for i in {0..3}; do
+for i in {0..7}; do
     seed=${seeds[$i]}
     echo "Starting task $((i)) with seed $seed"
     python llm_eval.py \

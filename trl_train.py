@@ -106,9 +106,8 @@ from datasets import load_dataset
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from transformers.models.auto.modeling_auto import MODEL_FOR_IMAGE_TEXT_TO_TEXT_MAPPING_NAMES
 
-from model import TempLLMQwen2ForCausalLM, TempLLMLlamaForCausalLM, TempLLMQwen3ForCausalLM, TempLLMQwen3MoeForCausalLM, AutoDecoModelForCausalLM# , TempLLMGptOssForCausalLM
-from trainer.trl_Temp import TempLLMTrainer
-from swanlab.integration.transformers import SwanLabCallback
+from model import AutoDecoModelForCausalLM
+from trainer.trl_autodeco import AutoDecoLLMTrainer
 
 # import sys
 # PATH_TO_TRL="trl/"
@@ -130,8 +129,8 @@ from trl import (
 
 # Custom ScriptArguments to add training head parameters
 @dataclass
-class TempLLMScriptArguments(ScriptArguments):
-    """Script arguments for TempLLM training."""
+class AutoDecoLLMScriptArguments(ScriptArguments):
+    """Script arguments for AutoDecoLLM training."""
     train_temp: bool = False
     train_top_p: bool = False
 
@@ -394,69 +393,8 @@ def main(script_args, training_args, model_args):
         except Exception:
             pass
 
-    # Create model with custom config
-    from model.templlm_qwen2_5 import TempLLMQwen2Config
-    from model.templlm_llama import TempLLMLlamaConfig
-    from model.templlm_qwen3 import TempLLMQwen3Config
-    from model.templlm_qwen3_moe import TempLLMQwen3MoeConfig
-    # from model.templlm_gptoss import TempLLMGptOssConfig
-    # if script_args.train_temp or script_args.train_top_p:
-    #     if model_args.model_name_or_path.lower() in ['qwen3-8b', 'tempqwen3']:
-    #         config = TempLLMQwen3Config.from_pretrained(
-    #             model_args.model_name_or_path, 
-    #             attn_implementation="flash_attention_2",
-    #             train_temp=script_args.train_temp,
-    #             train_top_p=script_args.train_top_p
-    #         )
-    #         model = TempLLMQwen3ForCausalLM.from_pretrained(model_args.model_name_or_path, config=config, **model_kwargs)
-    #     # elif 'gpt-oss' in model_args.model_name_or_path.lower():
-    #     #     config = TempLLMGptOssConfig.from_pretrained(
-    #     #         model_args.model_name_or_path, 
-    #     #         attn_implementation="flash_attention_2",
-    #     #         train_temp=script_args.train_temp,
-    #     #         train_top_p=script_args.train_top_p
-    #     #     )
-    #     #     # Force eager attention for GPT-OSS to avoid unsupported SDPA/FA2 paths
-    #     #     model = TempLLMGptOssForCausalLM.from_pretrained(model_args.model_name_or_path, config=config, **model_kwargs)
-    #     elif 'qwen3-30b-a3b' in model_args.model_name_or_path.lower():
-    #         config = TempLLMQwen3MoeConfig.from_pretrained(
-    #             model_args.model_name_or_path, 
-    #             attn_implementation="flash_attention_2",
-    #             train_temp=script_args.train_temp,
-    #             train_top_p=script_args.train_top_p
-    #         )
-    #         model = TempLLMQwen3MoeForCausalLM.from_pretrained(model_args.model_name_or_path, config=config, **model_kwargs)
-    #     elif 'r1' in model_args.model_name_or_path.lower():
-    #         config = TempLLMQwen2Config.from_pretrained(
-    #             model_args.model_name_or_path, 
-    #             attn_implementation="flash_attention_2",
-    #             train_temp=script_args.train_temp,
-    #             train_top_p=script_args.train_top_p
-    #         )
-    #         model = TempLLMQwen2ForCausalLM.from_pretrained(model_args.model_name_or_path, config=config, **model_kwargs)
-    #     elif 'llama' in model_args.model_name_or_path.lower():
-    #         config = TempLLMLlamaConfig.from_pretrained(
-    #             model_args.model_name_or_path, 
-    #             attn_implementation="flash_attention_2",
-    #             train_temp=script_args.train_temp,
-    #             train_top_p=script_args.train_top_p
-    #         )
-    #         model = TempLLMLlamaForCausalLM.from_pretrained(model_args.model_name_or_path, config=config, **model_kwargs)
-    #     else:
-    #         raise ValueError(f"Temp Model {model_args.model_name_or_path} not supported")
-    # else:
-    #     model = AutoModelForCausalLM.from_pretrained(model_args.model_name_or_path, **model_kwargs)
-    #     print(f"[!] Using default model loader to load model: {model_args.model_name_or_path}")
-    
-    ######## uniform #########
-    model = AutoDecoModelForCausalLM.from_pretrained(model_args.model_name_or_path, trust_remote_code=True, train_temp=script_args.train_temp, train_top_p=script_args.train_top_p, use_enhanced_features=True)
-    # config = TempLLMQwen2Config.from_pretrained(
-    #     model_args.model_name_or_path, 
-    #     attn_implementation="flash_attention_2",
-    #     train_temp=script_args.train_temp,
-    #     train_top_p=script_args.train_top_p
-    #     )
-    # model = TempLLMQwen2ForCausalLM.from_pretrained(model_args.model_name_or_path, config=config, **model_kwargs)
+    model = AutoDecoModelForCausalLM.from_pretrained(model_args.model_name_or_path)
+
     # Configure which heads to train based on script arguments
     if script_args.train_temp or script_args.train_top_p:
         print(f"[!] Training configuration: train_temp={script_args.train_temp}, train_top_p={script_args.train_top_p}")
@@ -474,7 +412,6 @@ def main(script_args, training_args, model_args):
             print(f"[!] {status} parameter: {name}")
             continue
         else:
-            # 如果train_temp和train_top_p都为False，则启用主参数梯度
             if not script_args.train_temp and not script_args.train_top_p:
                 param.requires_grad = True
                 print(f"[!] Training parameter: {name}")
@@ -482,7 +419,7 @@ def main(script_args, training_args, model_args):
                 param.requires_grad = False
                 print(f"[!] Freezing parameter: {name}")
 
-    # Create tokenizerkill 2441097
+    # Create tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path, trust_remote_code=model_args.trust_remote_code, use_fast=True, 
     )
@@ -501,35 +438,22 @@ def main(script_args, training_args, model_args):
         if hasattr(model, "config"):
             model.config.pad_token_id = tokenizer.pad_token_id
 
-    ################
-    # Dataset
-    ################
-    # if is jsonl file, use jsonl dataset
+
     try:
-        dataset = load_dataset("json", data_files=f"data/shortest_reasoning/{script_args.dataset_name}")
+        dataset = load_dataset("json", data_files=f"data/{script_args.dataset_name}")
     except Exception as e:
         print(f"[!] Error loading dataset: {e}")
         raise ValueError(f"Dataset {script_args.dataset_name} not found")
 
-    # dataset['train'] = dataset['train'].select(range(50))
-    # online log
-    swanlab_callback = SwanLabCallback(
-        project="TempLLM",
-        experiment_name='TempLLM',
-    )
-    ################
-    # Training
-    ################
     if script_args.train_temp or script_args.train_top_p:
-        print(f"[!] TempLLM Training")
-        trainer = TempLLMTrainer(
+        print(f"[!] AutoDecoLLM Training")
+        trainer = AutoDecoLLMTrainer(
         model=model,
         args=training_args,
         train_dataset=dataset[script_args.dataset_train_split],
         eval_dataset=dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,
         data_collator=DataCollatorForLanguageModeling(pad_token_id=tokenizer.pad_token_id),
         peft_config=get_peft_config(model_args),
-        # callbacks=[swanlab_callback],
         )
     else:
         print(f"[!] Normal SFT Training")
@@ -539,7 +463,6 @@ def main(script_args, training_args, model_args):
             train_dataset=dataset[script_args.dataset_train_split],
             eval_dataset=dataset[script_args.dataset_test_split] if training_args.eval_strategy != "no" else None,
             peft_config=get_peft_config(model_args),
-            callbacks=[swanlab_callback],
         )
 
     trainer.train()
@@ -550,7 +473,7 @@ def main(script_args, training_args, model_args):
 
 
 def make_parser(subparsers: argparse._SubParsersAction = None):
-    dataclass_types = (TempLLMScriptArguments, SFTConfig, ModelConfig)
+    dataclass_types = (AutoDecoLLMScriptArguments, SFTConfig, ModelConfig)
     if subparsers is not None:
         parser = subparsers.add_parser("sft", help="Run the SFT training script", dataclass_types=dataclass_types)
     else:

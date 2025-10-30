@@ -30,7 +30,7 @@ from trl.data_utils import (
     truncate_dataset,
 )
 
-class TempLLMTrainer(SFTTrainer):
+class AutoDecoLLMTrainer(SFTTrainer):
     def __init__(
             self,
             *args,
@@ -38,9 +38,7 @@ class TempLLMTrainer(SFTTrainer):
             temp_loss_weight: float = 1.0,
             **kwargs
     ):
-        # 完全继承 SFTTrainer 的初始化
         super().__init__(*args, **kwargs)
-        # 只添加自定义参数
         self.pad_token_id = pad_token_id
         self.temp_loss_weight = temp_loss_weight
 
@@ -179,9 +177,6 @@ class TempLLMTrainer(SFTTrainer):
                         completion_mask = [0] * len(prompt_ids) + [1] * (len(prompt_completion_ids) - len(prompt_ids))
                         output["input_ids"] = prompt_completion_ids
                         output["completion_mask"] = completion_mask
-                        # output["temp_labels"] = example['results']['optimal_T']
-                        # output["top_p_labels"] = example['results']['top_p']
-                        # output["top_k_labels"] = example['results']['top_k']
                     else:  # language modeling case
                         if is_conversational(example):
                             processed = processing_class.apply_chat_template(
@@ -263,7 +258,6 @@ class TempLLMTrainer(SFTTrainer):
         temp_loss = outputs.temp_loss.item() if outputs.temp_loss is not None else 0
         lm_loss = outputs.lm_loss.item() if outputs.lm_loss is not None else 0
         top_p_loss = outputs.top_p_loss.item() if outputs.top_p_loss is not None else 0
-        # self.log({"temp_loss": temp_loss, "lm_loss": lm_loss, "loss": outputs.loss.item()})
         self.log({"loss": outputs.loss.item(), "temp_loss": temp_loss, "lm_loss": lm_loss, "top_p_loss": top_p_loss})
         return outputs['loss']
 

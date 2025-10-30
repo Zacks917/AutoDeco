@@ -168,7 +168,10 @@ if __name__ == "__main__":
     # model_name_or_path = '/apdcephfs_qy3/share_301812049/zackszcwang/TempLLM/ckpt/Stage1-DeepMath-R1-no-DFT-5e-6LR-1Epochs-12000Tokens-1BS-4'
     # model_name_or_path = '/apdcephfs_qy3/share_301812049/shared/model/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B'
     # args.model_name_or_path = '/apdcephfs_qy3/share_301812049/zackszcwang/TempLLM/ckpt/ckpt/LLaMA-Stage1-DeepMath-R1-DFT-mask-5e-6LR-1Epochs-16384Tokens-1BS-4-5e-6LR-1Epochs-16384Tokens-1BS-4'
-    args.model_name_or_path = 'ckpt/R1-no-DFT-End2End-5e-6LR-1Epochs-12000Tokens-1BS-4'
+    # args.model_name_or_path = '../temp/ckpt/GPT-OSS-20B-DFT-End2End'
+    # args.model_name_or_path = '../models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B'
+    # args.model_name_or_path = '../models/openai/gpt-oss-20b/'
+    # args.model_name_or_path = '../models/Qwen/Qwen3-30B-A3B-Instruct-2507'
     ckpt_name = extract_model_name(args.model_name_or_path)
 
     temp = args.temp
@@ -213,6 +216,8 @@ if __name__ == "__main__":
 
     tokenizer = llm.get_tokenizer()
 
+    from transformers import AutoTokenizer
+    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
     problems = [
         tokenizer.apply_chat_template(
             [{"role": "user", "content": item['problem'] + '\nMake sure you output the final answer within \\boxed{}.'}],
@@ -245,9 +250,8 @@ if __name__ == "__main__":
             top_ps = []
             for output in output_group.outputs:
                 generated_text = output.text
-                # 安全地获取temp值，如果属性不存在则使用默认值
-                temp = getattr(output, 'temps', None)  # 使用当前循环的temp值作为默认值
-                top_p = getattr(output, 'top_p', None)
+                temp = getattr(output, 'temperatures', None)  # 使用当前循环的temp值作为默认值
+                top_p = getattr(output, 'top_ps', None)
                 score = compute_score(generated_text, gt)
                 scores.append(score)
                 solutions.append(generated_text)
@@ -256,16 +260,16 @@ if __name__ == "__main__":
                 if top_p is not None:
                     top_ps.append(top_p)
                 # logprobs.append(output.logprobs)
-            # 计算当前问题的pass@32 (32个样本中有1个正确就算通过)
-            pass_at_k = compute_pass_at_k(scores, k)
-            all_scores.append(pass_at_k)  # 添加到全局得分列表
-            all_acc.append(round(sum(scores)/len(scores)*100, 2))
+            # This pass@k is not used in the paper，corrected by Tian Liang
+            # pass_at_k = compute_pass_at_k(scores, k)
+            # all_scores.append(pass_at_k)  # 添加到全局得分列表
+            # all_acc.append(round(sum(scores)/len(scores)*100, 2))
             # f.write(json.dumps({'problem': data[idx]['problem'], 'ground_truth': ground_truths[idx], 'temp_acc': {args.temp: round(sum(scores)/len(scores)*100, 2)}, 'solutions': solutions, 'temp': temps}, ensure_ascii=False)+'\n')
             f.write(json.dumps({
                 'problem': problems[idx],  # data[idx]['problem']
                 'ground_truth': ground_truths[idx], 
                 'temp_acc': {args.temp: round(sum(scores)/len(scores)*100, 2)}, 
-                f'pass_at_{k}': round(pass_at_k * 100, 2),
+                # f'pass_at_{k}': round(pass_at_k * 100, 2),
                 'solutions': solutions,
                 'temp': temps,
                 'top_p': top_ps,
@@ -273,14 +277,14 @@ if __name__ == "__main__":
             }, ensure_ascii=False)+'\n')
         
         # 计算整体的pass@32
-        avg_pass_at_k = round(sum(all_scores)/len(all_scores)*100, 2)
+        # avg_pass_at_k = round(sum(all_scores)/len(all_scores)*100, 2)
         avg_acc = round(sum(all_acc)/len(all_acc), 2)
-        print(f"Overall avg Pass@{k}: {avg_pass_at_k}%")
+        # print(f"Overall avg Pass@{k}: {avg_pass_at_k}%")
         print(f"Overall avg Acc: {avg_acc}%")
 
         # 保存 ASCII 表格到 .txt
         txt_path = os.path.splitext(f.name)[0] + '.txt'
-        write_ascii_table(txt_path, 'AIME24', avg_pass_at_k, avg_acc, k)
+        write_ascii_table(txt_path, 'AIME24', 0, avg_acc, k)
 
     # with open(f'/apdcephfs_qy3/share_301812049/zackszcwang/TempLLM/generation_log/deepmath_deepseek-ai-temp0.6-pass@16.json', 'r') as f:
     #     data = [json.loads(line) for line in f.readlines()]

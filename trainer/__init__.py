@@ -1,1 +1,1 @@
-from .trl_Temp import TempLLMTrainer
+from .trl_Temp import AutoDecoLLMTrainer
