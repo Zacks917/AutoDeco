@@ -1,0 +1,5 @@
+/auto_deco_megatron/nemo/
+/auto_deco_megatron/megatron/
+__pycache__/
+.idea/
+.vscode/
