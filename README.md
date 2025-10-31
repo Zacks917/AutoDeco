@@ -262,11 +262,14 @@ python merge_autodeco.py merge \
 If you use AutoDeco in your research, please cite:
 
 ```bibtex
-@software{autodeco2025,
-  title={THE END OF MANUAL DECODING: TOWARDS TRULY END-TO-END LANGUAGE MODELS},
-  author={Zhichao Wang, Dongyang Ma, Xinting Huang, Deng Cai, Tian Lan, Jiahao Xu, Haitao Mi, Xiaoying Tang, Yan Wang},
-  year={2025},
-  url={https://github.com/yourusername/AutoDeco}
+@misc{wang2025endmanualdecodingtruly,
+      title={The End of Manual Decoding: Towards Truly End-to-End Language Models}, 
+      author={Zhichao Wang and Dongyang Ma and Xinting Huang and Deng Cai and Tian Lan and Jiahao Xu and Haitao Mi and Xiaoying Tang and Yan Wang},
+      year={2025},
+      eprint={2510.26697},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2510.26697}, 
 }
 ```
 
