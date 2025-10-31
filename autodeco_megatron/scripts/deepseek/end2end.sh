@@ -63,7 +63,7 @@ torchrun --nnodes $NNODES --nproc-per-node $NPROC_PER_NODE --master-addr $MASTER
   --num_layers_in_last_pipeline_stage=6 \
   --train_fp=$TRAIN_FP \
   --eval_fp="" \
-  --max_length=8192 \
+  --max_length=6144 \
   --save_dir=$SAVE_DIR \
   --micro_batch_size=1 \
   --global_batch_size=$GLOBAL_BATCH_SIZE \
