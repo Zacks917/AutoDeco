@@ -135,63 +135,7 @@ class AutoDecoModelForCausalLMConfig(PretrainedConfig):
         self.base_model_name_or_path = base_model_name_or_path
         self._name_or_path = base_model_name_or_path
         self.base_model_type = kwargs.get('model_type', None)
-    # @classmethod
-    # def from_base_model(
-    #     cls, 
-    #     pretrained_model_name_or_path: str,
-    #     train_temp: bool = False,
-    #     train_top_p: bool = False,
-    #     use_enhanced_features: bool = True,
-    #     **kwargs
-    # ):
-    #     """
-    #     Create AutoDecoConfig from a base model.
-        
-    #     Args:
-    #         pretrained_model_name_or_path: Path or name of the base model
-    #         train_temp: Whether to train temperature head
-    #         train_top_p: Whether to train top-p head
-    #         use_enhanced_features: Whether to use enhanced features
-    #         **kwargs: Additional arguments passed to base config loading
-    #     """
-    #     # Load base model config
-    #     base_config = AutoConfig.from_pretrained(
-    #         pretrained_model_name_or_path, 
-    #         trust_remote_code=kwargs.get('trust_remote_code', False)
-    #     )
-        
-    #     # Convert base config to dict
-    #     config_dict = base_config.to_dict()
-        
-    #     # Create AutoDecoConfig with merged parameters
-    #     return cls(
-    #         base_model_type=base_config.model_type, 
-    #         base_model_name_or_path=pretrained_model_name_or_path,
-    #         train_temp=train_temp,
-    #         train_top_p=train_top_p,
-    #         use_enhanced_features=use_enhanced_features,
-    #         **config_dict
-    #     )
-    
-    # def to_dict(self):
-    #     """
-    #     Convert config to dictionary.
-        
-    #     Returns a dict containing:
-    #     - All base model config parameters (inherited)
-    #     - AutoDeco-specific parameters (train_temp, train_top_p, use_enhanced_features)
-    #     - Metadata (model_type, base_model_type, base_model_name_or_path, architectures)
-    #     """
-    #     # Get all base model parameters from parent
-    #     output = super().to_dict()
-        
-    #     # Ensure AutoDeco-specific fields are included
-    #     # (Only 3 additional parameters + metadata)
-    #     output.update({
-    #         'model_type': 'autodeco',  # "AutoDeco"
-    #         'architectures': ['AutoDecoModelForCausalLM'],  # Architecture class name
-    #     })
-    #     return output
+
 
 
 class AutoDecoModelForCausalLM(PreTrainedModel, GenerationMixin):
@@ -238,21 +182,6 @@ class AutoDecoModelForCausalLM(PreTrainedModel, GenerationMixin):
         # Training flags
         self.train_temp = config.enable_temperature_head
         self.train_top_p = config.enable_top_p_head
-        
-        # TODO: maybe we don't need this check? any llm base model training can be aborted.
-        # # Check if base model is MoE
-        # self.is_moe = hasattr(config, 'num_local_experts') or \
-        #               hasattr(config, 'num_experts')
-        
-        # if self.is_moe:
-        #     self.router_aux_loss_coef = getattr(config, 'router_aux_loss_coef', 0.01)
-        #     self.num_experts = getattr(config, 'num_local_experts', None) or \
-        #                       getattr(config, 'num_experts', None)
-        #     self.num_experts_per_tok = getattr(config, 'num_experts_per_tok', 2)
-        
-        # # Copy _no_split_modules from base model if available
-        # if self.llm is not None and hasattr(self.llm, '_no_split_modules'):
-        #     self._no_split_modules = self.llm._no_split_modules
         
         logger.info(f"AutoDeco model initialized:")
         logger.info(f"  - base_model_type={config.base_model_type}, base_model_name_or_path={config.base_model_name_or_path}")
@@ -302,129 +231,6 @@ class AutoDecoModelForCausalLM(PreTrainedModel, GenerationMixin):
         else:
             print("no head state dict found...")
         return autodeco_model
-    
-    # def save_pretrained(
-    #     self,
-    #     save_directory: str,
-    #     is_main_process: bool = True,
-    #     state_dict: Optional[dict] = None,
-    #     save_function: callable = torch.save,
-    #     push_to_hub: bool = False,
-    #     max_shard_size: Union[int, str] = "5GB",
-    #     safe_serialization: bool = True,
-    #     variant: Optional[str] = None,
-    #     token: Optional[Union[str, bool]] = None,
-    #     save_peft_format: bool = True,
-    #     **kwargs
-    # ):
-    #     """
-    #     Save AutoDeco model config and heads weights only (lightweight).
-        
-    #     This saves:
-    #     1. config.json with AutoDecoConfig (includes base_model_name_or_path)
-    #     2. ONLY temp_head and top_p_head weights (NOT the base model weights)
-        
-    #     The base model will be reloaded from base_model_name_or_path when loading.
-    #     This significantly reduces checkpoint size (~5MB vs ~14GB).
-        
-    #     Use merge_autodeco.py script to create full checkpoint for vLLM deployment.
-    #     """
-    #     import os
-    #     import json
-    #     from transformers.modeling_utils import unwrap_model
-    #     from huggingface_hub import split_torch_state_dict_into_shards
-        
-    #     if os.path.isfile(save_directory):
-    #         logger.error(f"Provided path ({save_directory}) should be a directory, not a file")
-    #         return
-        
-    #     os.makedirs(save_directory, exist_ok=True)
-        
-    #     # Unwrap model (handles PEFT wrapping)
-    #     model_to_save = unwrap_model(self)
-        
-    #     # Save config
-    #     if is_main_process:
-    #         model_to_save.config.save_pretrained(save_directory)
-        
-    #     # Prepare state_dict (heads only)
-    #     logger.info("Saving AutoDeco heads only (lightweight)")
-        
-    #     if state_dict is None:
-    #         # No state_dict provided, get it from model
-    #         state_dict = {}
-    #         temp_head_state = model_to_save.temp_head.state_dict()
-    #         for key, value in temp_head_state.items():
-    #             state_dict[f"temp_head.{key}"] = value
-            
-    #         top_p_head_state = model_to_save.top_p_head.state_dict()
-    #         for key, value in top_p_head_state.items():
-    #             state_dict[f"top_p_head.{key}"] = value
-    #     else:
-    #         # state_dict provided (e.g., by Trainer), filter to keep only heads
-    #         # The provided state_dict may have full model keys or already-prefixed keys
-    #         heads_state_dict = {}
-            
-    #         for key, value in state_dict.items():
-    #             # Keep only temp_head.* and top_p_head.* keys
-    #             if key.startswith('temp_head.') or key.startswith('top_p_head.'):
-    #                 heads_state_dict[key] = value
-            
-    #         state_dict = heads_state_dict
-            
-    #         # If no heads found with prefix, the state_dict might not have prefixes
-    #         # In that case, extract from the model itself
-    #         if not state_dict:
-    #             logger.warning("No heads found in provided state_dict, extracting from model")
-    #             temp_head_state = model_to_save.temp_head.state_dict()
-    #             for key, value in temp_head_state.items():
-    #                 state_dict[f"temp_head.{key}"] = value
-                
-    #             top_p_head_state = model_to_save.top_p_head.state_dict()
-    #             for key, value in top_p_head_state.items():
-    #                 state_dict[f"top_p_head.{key}"] = value
-        
-    #     # Use custom name for heads-only checkpoint
-    #     weights_name = "autodeco_heads.safetensors" if safe_serialization else "autodeco_heads.bin"
-    #     filename_pattern = weights_name.replace(".bin", "{suffix}.bin").replace(".safetensors", "{suffix}.safetensors")
-        
-    #     # Shard if needed
-    #     state_dict_split = split_torch_state_dict_into_shards(
-    #         state_dict,
-    #         filename_pattern=filename_pattern,
-    #         max_shard_size=max_shard_size
-    #     )
-        
-    #     # Prepare index if sharded
-    #     index = None
-    #     if state_dict_split.is_sharded:
-    #         index = {
-    #             "metadata": state_dict_split.metadata,
-    #             "weight_map": state_dict_split.tensor_to_filename,
-    #         }
-        
-    #     # Save shards
-    #     for shard_file, tensors in state_dict_split.filename_to_tensors.items():
-    #         shard = {tensor: state_dict[tensor].contiguous() for tensor in tensors}
-            
-    #         if safe_serialization:
-    #             from safetensors.torch import save_file
-    #             save_file(shard, os.path.join(save_directory, shard_file), metadata={"format": "pt"})
-    #         else:
-    #             save_function(shard, os.path.join(save_directory, shard_file))
-        
-    #     # Save index if sharded
-    #     if index is not None:
-    #         index_file = "autodeco_heads.safetensors.index.json" if safe_serialization else "autodeco_heads.bin.index.json"
-    #         index_path = os.path.join(save_directory, index_file)
-    #         with open(index_path, "w", encoding="utf-8") as f:
-    #             content = json.dumps(index, indent=2, sort_keys=True) + "\n"
-    #             f.write(content)
-    #         logger.info(f"Model weights saved in {len(state_dict_split.filename_to_tensors)} shard(s)")
-    #     else:
-    #         logger.info(f"Model weights saved in {os.path.join(save_directory, weights_name)}")
-        
-    #     logger.info(f"✓ Lightweight checkpoint saved (base model: {self.config.base_model_name_or_path})")
     
     def get_input_embeddings(self):
         return self.llm.get_input_embeddings()
@@ -683,26 +489,3 @@ __all__ = [
     'TempHead',
     'TopPHead',
 ]
-if __name__ == "__main__":
-    # automodel = AutoModelForCausalLM.from_pretrained("./autodeco-R1")
-    # print(automodel)
-    # assert 1==0
-    from transformers import AutoTokenizer
-    
-    base_model_name_or_path = "/apdcephfs_fsgm/share_303846923/user/zackszcwang/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/"
-    base_config = AutoConfig.from_pretrained(base_model_name_or_path)
-    tokenizer = AutoTokenizer.from_pretrained(base_model_name_or_path)
-    autodeco_config = AutoDecoModelForCausalLMConfig(
-        base_model_name_or_path=base_model_name_or_path,
-        enable_temperature_head=True,
-        enable_top_p_head=True,
-        use_enhanced_features=True,
-        **base_config.to_dict()
-    )
-    model = AutoDecoModelForCausalLM(autodeco_config)
-
-    print(model)
-    model.save_pretrained("./autodeco-R1")
-    tokenizer.save_pretrained("./autodeco-R1")
-    # assert 1==0
-
