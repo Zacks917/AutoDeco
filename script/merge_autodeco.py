@@ -204,19 +204,6 @@ Examples:
         required=True,
         help="Output directory for merged checkpoint"
     )
-    merge_parser.add_argument(
-        "--save-format",
-        type=str,
-        default="safetensors",
-        choices=["safetensors", "pytorch"],
-        help="Save format (default: safetensors)"
-    )
-    merge_parser.add_argument(
-        "--max-shard-size",
-        type=str,
-        default="4GB",
-        help="Maximum shard size (default: 4GB)"
-    )
     
     # Split subcommand
     split_parser = subparsers.add_parser('split', help='Extract heads from full checkpoint')
@@ -232,18 +219,6 @@ Examples:
         required=True,
         help="Output directory for heads-only checkpoint"
     )
-    split_parser.add_argument(
-        "--save-format",
-        type=str,
-        default="safetensors",
-        choices=["safetensors", "pytorch"],
-        help="Save format (default: safetensors)"
-    )
-    split_parser.add_argument(
-        "--no-copy-tokenizer",
-        action="store_true",
-        help="Don't copy tokenizer files"
-    )
     
     args = parser.parse_args()
     
@@ -253,15 +228,11 @@ Examples:
             args.autodeco_path,
             args.base_model_path,
             args.output,
-            args.save_format,
-            args.max_shard_size
         )
     elif args.mode == 'split':
         split_autodeco(
             args.full_checkpoint,
             args.output,
-            args.save_format,
-            copy_tokenizer=not args.no_copy_tokenizer
         )
 
 
