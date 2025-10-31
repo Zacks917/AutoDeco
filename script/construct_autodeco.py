@@ -6,6 +6,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from model.templlm_auto import AutoDecoModelForCausalLM, AutoDecoModelForCausalLMConfig
 from transformers import AutoModelForCausalLM, AutoConfig
 import argparse
+
+
 # Add project root (parent of this script directory) to sys.path for imports
 
 def main(base_model_name_or_path, output_dir):
@@ -23,6 +25,8 @@ def main(base_model_name_or_path, output_dir):
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"AutoDeco model saved to {output_dir}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--base_model_name_or_path', type=str, required=True)
