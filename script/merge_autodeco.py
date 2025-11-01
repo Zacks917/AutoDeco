@@ -131,16 +131,7 @@ def merge_autodeco(
 def _get_size(path: Path) -> str:
     """Get human-readable file size."""
     size = path.stat().st_size
-    return _get_size_str(size)
-
-
-def _get_size_str(size: int) -> str:
-    """Convert bytes to human-readable string."""
-    for unit in ['B', 'KB', 'MB', 'GB']:
-        if size < 1024.0:
-            return f"{size:.2f} {unit}"
-        size /= 1024.0
-    return f"{size:.2f} TB"
+    return shutil.format_bytes(size)
 
 
 def split_autodeco(
