@@ -46,7 +46,8 @@ vllm = "vllm.entrypoints.cli.main:main"
 lora_filesystem_resolver = "vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver"
 
 [tool.setuptools_scm]
-# no extra settings needed, presence enables setuptools-scm
+# Enable parent directory search to find git repository in parent AutoDeco directory
+search_parent_directories = true
 
 [tool.setuptools.packages.find]
 where = ["."]

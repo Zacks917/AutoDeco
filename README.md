@@ -177,6 +177,25 @@ accelerate launch trl_train.py \
 
 ## 📊 Inference
 
+### We have provided users with vLLM installed based on the source code (which has been adapted for model_type as autodeco for model inference). This is used for quickly deploying the trained autodeco model, conducting efficient inference and saving parameters.
+
+- Install vLLM from source code.
+    ```bash
+    uv venv /root/autodeco --python 3.12
+    cd autodeco_vllm_v0.10.2
+    uv pip install -e .
+    ```
+
+Before inference, the lightweight AutoDeco heads should first be merged with base LLM model.
+
+```bash
+python script/merge_autodeco.py merge \
+    --autodeco-path path_to_your_autodeco_heads \
+    --base-model-path path_to_your_LLM \
+    --output merged_path
+```
+
+
 ### Batch Evaluation with vLLM
 
 ```bash
@@ -190,42 +209,36 @@ python llm_eval.py \
     --seed 42
 
 # Batch evaluation with script (automatically generates multiple random seeds)
-bash script/test_generation.sh aime24 1.0 1.0 -1 1.0 path/to/model
+bash script/test_generation_tp4.sh aime24 1.0 1.0 -1 1.0 16 path/to/model # Tensor_parallel_size=4
+bash script/test_generation_tp4.sh aime24 1.0 1.0 -1 1.0 16 path/to/model # Tensor_parallel_size=8
 ```
 
-Evaluation results are saved in the `generation_log/` directory, including:
-- Pass@K metrics
-- Average accuracy
-- Detailed generation results for each sample
+Evaluation results are saved in the `generation_log/` directory.
 
-### Deploy with vLLM
-```bash
-# example
-vllm serve 
-```
 
 ## 📁 Project Structure
 ```
 AutoDeco/
 ├── model/                          # Model definitions
-│   ├── templlm_auto.py            # Unified AutoDeco model (recommended)
-definitions
+│   └──  templlm_auto.py            # Unified AutoDeco model 
 │
 ├── trainer/                        # Trainers
-│   └── trl_Temp.py                # AutoDeco trainer
+│   └── trl_autodeco.py                # AutoDeco trainer
 │
 ├── script/                         # Scripts
 │   ├── trl_train.sh               # Training launch script
-│   ├── test_generation.sh         # Batch evaluation script
+│   ├── test_generation.sh         # Batch evaluation 
+│   ├── construct_autodeco.py      # construct autodeco model
 │   └── merge_autodeco.py          # Merge or split heads
 │
 ├── config/                         # Configuration files
 │   └── deepspeed/                 # DeepSpeed configuration
 │       └── deepspeed_zero3_gradaccu4.yaml
+├── utils/                         # utils
+│   ├── boxed_extract.py           # rule-based answer extractor
+│   └── llm_eval.py                # batch evaluation
 │
 ├── trl_train.py                   # Training main program
-├── llm_eval.py                    # Evaluation main program (vLLM)
-├── boxed_extract.py               # Answer extraction tool
 ├── requirements.txt               # requirements
 └── README.md                      # This document
 

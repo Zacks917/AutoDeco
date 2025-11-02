@@ -353,9 +353,9 @@ def main(script_args, training_args, model_args):
         print(f"[!] Error loading dataset: {e}")
         raise ValueError(f"Dataset {script_args.dataset_name} not found")
 
-    dataset['train'] = dataset['train'].select(range(50))
+    # FOR DEBUGGING
+    # dataset['train'] = dataset['train'].select(range(50))
 
-    # dataset['train'] = dataset['train'][:100]
     if script_args.train_temp or script_args.train_top_p:
         print(f"[!] AutoDecoLLM Training")
         trainer = AutoDecoLLMTrainer(

@@ -1,7 +1,5 @@
-accelerate==1.10.1
-trl==0.20.0
-deepspeed==0.18.0
-
-python script/construct_autodeco.py \
-    --base_model_name_or_path ../../models/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B \
-    --output_dir ./test_qwen7b
+accelerate
+trl
+deepspeed
+orjson
+transformers>=4.55.0

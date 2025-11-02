@@ -169,6 +169,7 @@ class AutoDecoModelForCausalLM(PreTrainedModel, GenerationMixin):
         
         self.llm = AutoModelForCausalLM.from_pretrained(
             pretrained_model_name_or_path=base_model_path,
+            dtype=config.dtype if hasattr(config, 'dtype') else kwargs.get('dtype', None)
         )
     
         
