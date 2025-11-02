@@ -67,6 +67,7 @@ AutoDeco supports all current autoregressive LLMs, and we unified them with the 
 
 ```bash
 # Clone repository
+git clone --recurse-submodules https://github.com/Zacks917/AutoDeco.git
 cd AutoDeco
 
 # Install core dependencies
