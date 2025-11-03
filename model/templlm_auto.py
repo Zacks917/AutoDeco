@@ -134,7 +134,7 @@ class AutoDecoModelForCausalLMConfig(PretrainedConfig):
         self.use_enhanced_features = use_enhanced_features
         self.base_model_name_or_path = base_model_name_or_path
         self._name_or_path = base_model_name_or_path
-        self.base_model_type = kwargs.get('model_type', None)
+        self.base_model_type = kwargs.get('base_model_type', None) if kwargs.get('base_model_type', None) is not None else kwargs.get('model_type', None)
 
 
 

@@ -7,7 +7,7 @@ from collections import OrderedDict
 from boxed_extract import *
 from transformers import AutoTokenizer
 import math
-from model.templlm_auto import AutoDecoModelForCausalLM
+# from model.templlm_auto import AutoDecoModelForCausalLM
 
 
 def write_ascii_table(txt_path: str, dataset_name: str, avg_acc: float):
