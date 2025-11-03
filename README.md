@@ -201,7 +201,7 @@ python script/merge_autodeco.py merge \
 
 ```bash
 # Single evaluation
-python llm_eval.py \
+python utils/llm_eval.py \
     --model_name_or_path ckpt/autodeco_model \
     --dataset aime24 \
     --temp 1.0 \
@@ -250,7 +250,7 @@ AutoDeco/
 ### 1. Extract AutoDeco Heads from AutoDeco Model
 
 ```python
-python merge_autodeco.py split \
+python script/merge_autodeco.py split \
     --full-checkpoint path_to_your_full_model \
     --output path_to_split_head
 ```
@@ -264,7 +264,7 @@ This generates a lightweight checkpoint (~5MB) containing:
 If you need to create a complete model file with heads for inference engines like vLLM:
 
 ```python
-python merge_autodeco.py merge \
+python script/merge_autodeco.py merge \
     --autodeco-path path_to_autodeco_heads \
     --base-model-path path_to_base_LLM \
     --output path_to_your_full_model
