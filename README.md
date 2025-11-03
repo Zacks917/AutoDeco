@@ -271,6 +271,15 @@ python script/merge_autodeco.py merge \
 ```
 
 
+## 🙏 Acknowledgements
+
+This work can not be done without the help of the following works:
+
+*   [**TRL**](https://github.com/huggingface/trl): A library to train transformer language models with reinforcement learning.
+*   [**Megatron-LM**](https://github.com/NVIDIA/Megatron-LM): A powerful framework for training immense transformer models at scale.
+*   [**vLLM**](https://github.com/vllm-project/vllm): A high-throughput and memory-efficient inference and serving engine for LLMs.
+*   [**Transformers**](https://github.com/huggingface/transformers): A library providing thousands of pretrained models and an easy-to-use framework for training.
+
 ## 📝 Citation
 
 If you use AutoDeco in your research, please cite:
