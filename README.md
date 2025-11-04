@@ -47,8 +47,8 @@ AutoDeco supports all current autoregressive LLMs, and we unified them with the 
 | DeepSeek-R1-Distill-Qwen-7B   | 7B | 1.84M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-R1-Distill-Qwen-7B)   |
 | Qwen3-30B-A3B-Instruct-2507   | 30B | 1.05M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-Qwen3-30B-A3B-Instruct-2507)   |
 | OpenAI-GPT-OSS-20B   | 20B | 1.48M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-GPT-Oss-20B)   |
-| OpenAI-GPT-OSS-120B   | 120B | - | Comming Soon  |
-| Qwen3-235B-A22B-Thinking   | 235B | - | Comming Soon  |
+| OpenAI-GPT-OSS-120B   | 120B | 1.48M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-GPT-Oss-120B)  |
+| Qwen3-235B-A22B-Thinking   | 235B | 2.1M | [🤗 HuggingFace](https://huggingface.co/zacks917/AutoDeco-Qwen3-235B-A22B-Thinking-2507)  |
 | DeepSeek-V3.1-Terminus   | 671B | - | Comming Soon  |
 
 </div>
