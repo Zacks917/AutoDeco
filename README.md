@@ -37,7 +37,7 @@ During training, the base LLM parameters are frozen, and only the two prediction
 
 AutoDeco supports all current autoregressive LLMs, and we unified them with the following model architectures `AutoDecoModelForCausalLM` interface.
 
-
+You can leave a message in  [#2](https://github.com/Zacks917/AutoDeco/issues/2)  to let us know your needs for AutoDeco, and provide the base LLMs you would like AutoDeco to integrate with. We will try our best to train and release them.
 
 <div align="center">
 
