@@ -20,8 +20,7 @@ def main(base_model_name_or_path, output_dir):
         use_enhanced_features=True, # TODO: make it a parameter
         **base_config.to_dict()
     )
-
-    model = AutoDecoModelForCausalLM(autodeco_config)
+    model = AutoDecoModelForCausalLM(autodeco_config, dtype=base_config.dtype)
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"AutoDeco model saved to {output_dir}")

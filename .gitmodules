@@ -1,0 +1,4 @@
+[submodule "autodeco_vllm"]
+	path = autodeco_vllm
+	url = https://github.com/Zacks917/AutoDeco_vllm.git
+	branch = autodeco_v0.10.2

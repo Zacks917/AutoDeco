@@ -37,7 +37,7 @@ During training, the base LLM parameters are frozen, and only the two prediction
 
 AutoDeco supports all current autoregressive LLMs, and we unified them with the following model architectures `AutoDecoModelForCausalLM` interface.
 
-
+You can leave a message in  [#2](https://github.com/Zacks917/AutoDeco/issues/2)  to let us know your needs for AutoDeco, and provide the base LLMs you would like AutoDeco to integrate with. We will try our best to train and release them.
 
 <div align="center">
 
@@ -47,8 +47,8 @@ AutoDeco supports all current autoregressive LLMs, and we unified them with the 
 | DeepSeek-R1-Distill-Qwen-7B   | 7B | 1.84M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-R1-Distill-Qwen-7B)   |
 | Qwen3-30B-A3B-Instruct-2507   | 30B | 1.05M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-Qwen3-30B-A3B-Instruct-2507)   |
 | OpenAI-GPT-OSS-20B   | 20B | 1.48M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-GPT-Oss-20B)   |
-| OpenAI-GPT-OSS-120B   | 120B | - | Comming Soon  |
-| Qwen3-235B-A22B-Thinking   | 235B | - | Comming Soon  |
+| OpenAI-GPT-OSS-120B   | 120B | 1.48M | [🤗 HuggingFace](https://huggingface.co/Jadeislaw/AutoDeco-GPT-Oss-120B)  |
+| Qwen3-235B-A22B-Thinking   | 235B | 2.1M | [🤗 HuggingFace](https://huggingface.co/zacks917/AutoDeco-Qwen3-235B-A22B-Thinking-2507)  |
 | DeepSeek-V3.1-Terminus   | 671B | - | Comming Soon  |
 
 </div>
@@ -67,6 +67,7 @@ AutoDeco supports all current autoregressive LLMs, and we unified them with the 
 
 ```bash
 # Clone repository
+git clone --recurse-submodules https://github.com/Zacks917/AutoDeco.git
 cd AutoDeco
 
 # Install core dependencies
@@ -177,11 +178,30 @@ accelerate launch trl_train.py \
 
 ## 📊 Inference
 
+### We have provided users with vLLM installed based on the source code (which has been adapted for model_type as autodeco for model inference). This is used for quickly deploying the trained autodeco model, conducting efficient inference and saving parameters.
+
+- Install vLLM from source code.
+    ```bash
+    uv venv /root/autodeco --python 3.12
+    cd autodeco_vllm_v0.10.2
+    uv pip install -e .
+    ```
+
+Before inference, the lightweight AutoDeco heads should first be merged with base LLM model.
+
+```bash
+python script/merge_autodeco.py merge \
+    --autodeco-path path_to_your_autodeco_heads \
+    --base-model-path path_to_your_LLM \
+    --output merged_path
+```
+
+
 ### Batch Evaluation with vLLM
 
 ```bash
 # Single evaluation
-python llm_eval.py \
+python utils/llm_eval.py \
     --model_name_or_path ckpt/autodeco_model \
     --dataset aime24 \
     --temp 1.0 \
@@ -190,42 +210,36 @@ python llm_eval.py \
     --seed 42
 
 # Batch evaluation with script (automatically generates multiple random seeds)
-bash script/test_generation.sh aime24 1.0 1.0 -1 1.0 path/to/model
+bash script/test_generation_tp4.sh aime24 1.0 1.0 -1 1.0 16 path/to/model # Tensor_parallel_size=4
+bash script/test_generation_tp4.sh aime24 1.0 1.0 -1 1.0 16 path/to/model # Tensor_parallel_size=8
 ```
 
-Evaluation results are saved in the `generation_log/` directory, including:
-- Pass@K metrics
-- Average accuracy
-- Detailed generation results for each sample
+Evaluation results are saved in the `generation_log/` directory.
 
-### Deploy with vLLM
-```bash
-# example
-vllm serve 
-```
 
 ## 📁 Project Structure
 ```
 AutoDeco/
 ├── model/                          # Model definitions
-│   ├── templlm_auto.py            # Unified AutoDeco model (recommended)
-definitions
+│   └──  templlm_auto.py            # Unified AutoDeco model 
 │
 ├── trainer/                        # Trainers
-│   └── trl_Temp.py                # AutoDeco trainer
+│   └── trl_autodeco.py                # AutoDeco trainer
 │
 ├── script/                         # Scripts
 │   ├── trl_train.sh               # Training launch script
-│   ├── test_generation.sh         # Batch evaluation script
+│   ├── test_generation.sh         # Batch evaluation 
+│   ├── construct_autodeco.py      # construct autodeco model
 │   └── merge_autodeco.py          # Merge or split heads
 │
 ├── config/                         # Configuration files
 │   └── deepspeed/                 # DeepSpeed configuration
 │       └── deepspeed_zero3_gradaccu4.yaml
+├── utils/                         # utils
+│   ├── boxed_extract.py           # rule-based answer extractor
+│   └── llm_eval.py                # batch evaluation
 │
 ├── trl_train.py                   # Training main program
-├── llm_eval.py                    # Evaluation main program (vLLM)
-├── boxed_extract.py               # Answer extraction tool
 ├── requirements.txt               # requirements
 └── README.md                      # This document
 
@@ -236,7 +250,7 @@ definitions
 ### 1. Extract AutoDeco Heads from AutoDeco Model
 
 ```python
-python merge_autodeco.py split \
+python script/merge_autodeco.py split \
     --full-checkpoint path_to_your_full_model \
     --output path_to_split_head
 ```
@@ -250,12 +264,21 @@ This generates a lightweight checkpoint (~5MB) containing:
 If you need to create a complete model file with heads for inference engines like vLLM:
 
 ```python
-python merge_autodeco.py merge \
+python script/merge_autodeco.py merge \
     --autodeco-path path_to_autodeco_heads \
     --base-model-path path_to_base_LLM \
     --output path_to_your_full_model
 ```
 
+
+## 🙏 Acknowledgements
+
+This work can not be done without the help of the following works:
+
+*   [**TRL**](https://github.com/huggingface/trl): A library to train transformer language models with reinforcement learning.
+*   [**Megatron-LM**](https://github.com/NVIDIA/Megatron-LM): A powerful framework for training immense transformer models at scale.
+*   [**vLLM**](https://github.com/vllm-project/vllm): A high-throughput and memory-efficient inference and serving engine for LLMs.
+*   [**Transformers**](https://github.com/huggingface/transformers): A library providing thousands of pretrained models and an easy-to-use framework for training.
 
 ## 📝 Citation
 

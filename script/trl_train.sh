@@ -7,7 +7,7 @@ LOCAL_IP="127.0.0.1"  # Change this to your machine's IP if running distributed
 
 
 
-MODEL_NAME_OR_PATH='Initialized-R1'
+MODEL_NAME_OR_PATH='test_qwen7b'
 EXP_NAME='AutoDeco-R1-Distill-Qwen-7B'
 
 
@@ -42,7 +42,6 @@ for LEARNING_RATE in 5e-6; do \
         --num_train_epochs $NUM_EPOCHS \
         --gradient_checkpointing \
         --logging_steps 1 \
-        --report_to swanlab \
         --output_dir $OUTPUT_DIR \
         --save_strategy 'epoch' \
         --attn_implementation 'flash_attention_2' \
