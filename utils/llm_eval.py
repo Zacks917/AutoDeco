@@ -72,6 +72,7 @@ if __name__ == "__main__":
             [{"role": "user", "content": item['problem'] + '\nMake sure you output the final answer within \\boxed{}.'}],
             tokenize=False,
             add_generation_prompt=True,
+            enable_thinking=True
         ) for item in data
     ]
 
