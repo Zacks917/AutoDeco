@@ -1,0 +1,1934 @@
+[
+  {
+    "question_id": 1,
+    "question": "Statement 1 | The image of a group of 6 elements under a homomorphism may have 12 elements. Statement 2 | There is a homomorphism of some group of 6 elements into some group of 12 elements.",
+    "options": [
+      "Not enough information, Not enough information",
+      "False, False",
+      "False, Not enough information",
+      "True, True",
+      "False, Depends on the group",
+      "Not enough information, False",
+      "True, False",
+      "Not enough information, True",
+      "True, Not enough information",
+      "False, True"
+    ],
+    "answer": "J",
+    "answer_index": 9,
+    "category": "math",
+    "src": "ori_mmlu-abstract_algebra"
+  },
+  {
+    "question_id": 2,
+    "question": "Suppose 5 different integers are randomly chosen from between 20 and 69, inclusive. What is the probability that they each have a different tens digit?",
+    "options": [
+      "\\frac{1}{5}",
+      "\\frac{1000}{52969}",
+      "\\frac{5000}{52969}",
+      "\\frac{1}{4}",
+      "\\frac{4000}{52969}",
+      "\\frac{2}{5}",
+      "\\frac{1}{2}",
+      "\\frac{1}{3}",
+      "\\frac{2500}{52969}",
+      "\\frac{3000}{52969}"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 3,
+    "question": "What is the smallest prime whose digits sum to $19$?",
+    "options": [
+      "1991",
+      "199",
+      "289",
+      "17",
+      "109",
+      "29",
+      "991",
+      "11",
+      "919",
+      "5"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 4,
+    "question": "Statement 1 | The external direct product of cyclic groups is cyclic. Statement 2 | The external direct product of D_3 and D_4 is isomorphic to D_12.",
+    "options": [
+      "Statement 1 is an example of Statement 2, False",
+      "True, True",
+      "True, False",
+      "Both statements are true, but unrelated",
+      "True, Statement 2 is an example of Statement 1",
+      "Both statements are true, but Statement 1 is sometimes false",
+      "False, True",
+      "Statement 1 is dependent on the conditions of Statement 2, False",
+      "False, False",
+      "Both statements are false, but Statement 2 is occasionally true"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "math",
+    "src": "ori_mmlu-abstract_algebra"
+  },
+  {
+    "question_id": 5,
+    "question": "How many diagonals are in a regular octagon?",
+    "options": [
+      "20",
+      "28",
+      "17",
+      "12",
+      "22",
+      "16",
+      "15",
+      "8",
+      "18",
+      "24"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 6,
+    "question": "Let $f(x) = 3x^2-2$ and $g(f(x)) = x^2 + x +1$. Find the sum of all possible values of $g(25)$.",
+    "options": [
+      "13",
+      "25",
+      "15",
+      "9",
+      "18",
+      "19",
+      "22",
+      "21",
+      "20",
+      "17"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 7,
+    "question": "Evaluate$$\\lceil\\sqrt{5}\\rceil + \\lceil\\sqrt{6}\\rceil + \\lceil\\sqrt{7}\\rceil + \\cdots + \\lceil\\sqrt{29}\\rceil$$Note: For a real number $x,$ $\\lceil x \\rceil$ denotes the smallest integer that is greater than or equal to $x.$",
+    "options": [
+      "112",
+      "210",
+      "130",
+      "113",
+      "110",
+      "2006",
+      "111",
+      "100",
+      "120",
+      "115"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 8,
+    "question": "Grady rides his bike $60\\%$ faster than his little brother Noah. If Grady rides $12$ miles further than Noah in two hours, how fast in miles per hour does Noah ride?",
+    "options": [
+      "15",
+      "7.2",
+      "32",
+      "25",
+      "5",
+      "22",
+      "12",
+      "18",
+      "10",
+      "20"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 9,
+    "question": "The school principal has to have three different teachers speak at the graduation ceremony—one as the opener, one as the name-reader, and one as the closer. There are 85 teachers on staff. How many possible speaking lineups can the principal have?",
+    "options": [
+      "610,000",
+      "590,000",
+      "592,620",
+      "615,000",
+      "614,125",
+      "614,126",
+      "592,704",
+      "600,000",
+      "614,500",
+      "592,500"
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 10,
+    "question": "If g (x) = f (–x) for all real numbers x, and if (3, 2) is a point on the graph of g, which of the following points MUST be on the graph of f ?",
+    "options": [
+      "(–2, 3)",
+      "(2, –3)",
+      "(3, 2)",
+      "(–3, –2)",
+      "(–2, 2)",
+      "(2, –2)",
+      "(2, 3)",
+      "(–3, 2)",
+      "(3, –2)",
+      "(–2, –3)"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "math",
+    "src": "ori_mmlu-high_school_mathematics"
+  },
+  {
+    "question_id": 11,
+    "question": "Which among them has the strongest wireless security?",
+    "options": [
+      "WPA",
+      "WPA2-Enterprise",
+      "WEP",
+      "WEP+",
+      "WPA-PSK",
+      "WEP2",
+      "WPA2",
+      "WPA3",
+      "WPA4",
+      "WPA2-PSK"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "computer science",
+    "src": "ori_mmlu-computer_security"
+  },
+  {
+    "question_id": 12,
+    "question": "Which of the following is the hexadecimal representation of the decimal number 231_{10} ?",
+    "options": [
+      "1F_{16}",
+      "17_{16}",
+      "D2_{16}",
+      "E4_{16}",
+      "A5_{16}",
+      "F4_{16}",
+      "B3_{16}",
+      "C7_{16}",
+      "E7_{16}",
+      "FE_{16}"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "computer science",
+    "src": "ori_mmlu-high_school_computer_science"
+  },
+  {
+    "question_id": 13,
+    "question": "Which of the following is false?",
+    "options": [
+      "Semantic segmentation models predict the class of each pixel, while multiclass image classifiers predict the class of entire image.",
+      "A bounding box with an IoU (intersection over union) equal to $96\\%$ would likely be considered at true positive.",
+      "When a predicted bounding box does not correspond to any object in the scene, it is considered a false positive.",
+      "A bounding box with an IoU (intersection over union) equal to $3\\%$ would likely be considered at false negative."
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "computer science",
+    "src": "ori_mmlu-machine_learning"
+  },
+  {
+    "question_id": 14,
+    "question": "Which of the following is not an example of presentation layer issues?",
+    "options": [
+      "Poor handling of unexpected input can lead to the execution of arbitrary instructions",
+      "Unintentional or ill-directed use of superficially supplied input",
+      "Cryptographic flaws in the system may get exploited to evade privacy",
+      "Weak or non-existent authentication mechanisms"
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "computer science",
+    "src": "ori_mmlu-computer_security"
+  },
+  {
+    "question_id": 15,
+    "question": "Which of the following pairs of 8-bit, two's-complement numbers will result in overflow when the members of the pairs are added?",
+    "options": [
+      "11110000, 00001111",
+      "01111111, 10000000",
+      "00000001, 10000000",
+      "10000001, 10101010",
+      "11111111, 00000001",
+      "11111111, 10000001",
+      "00000000, 10000000",
+      "10000001, 00000001",
+      "10101010, 11111111"
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "computer science",
+    "src": "ori_mmlu-college_computer_science"
+  },
+  {
+    "question_id": 16,
+    "question": "Let F: K \\times R \\to MF:K×R→M be a secure PRF. For m \\in Mm∈M define E(k,m) = \\big[ r \\gets R,\\ \\text{output } \\big(r,\\ F(k,r) \\oplus m\\big)\\ \\big]E(k,m)=[r←R, output (r, F(k,r)⊕m) ] Is EE symantically secure under CPA?",
+    "options": [
+      "It depends on the size of R",
+      "Yes, but only if R is large enough so r never repeats (w.h.p)",
+      "Yes, but only if M is small enough so m never repeats (w.h.p)",
+      "No, unless F is a weak PRF",
+      "No, unless F is a strong PRF",
+      "Yes, but only if K is large enough so k never repeats (w.h.p)",
+      "It depends on the size of K",
+      "No, there is always a CPA attack on this system",
+      "It depends on what F is used",
+      "Yes, whenever F is a secure PRF"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "computer science",
+    "src": "ori_mmlu-computer_security"
+  },
+  {
+    "question_id": 17,
+    "question": "Statement 1| The back-propagation algorithm learns a globally optimal neural network with hidden layers. Statement 2| The VC dimension of a line should be at most 2, since I can find at least one case of 3 points that cannot be shattered by any line.",
+    "options": [
+      "False, False",
+      "True, True",
+      "False, True",
+      "True, False"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "computer science",
+    "src": "ori_mmlu-machine_learning"
+  },
+  {
+    "question_id": 18,
+    "question": "The disadvantage of Grid search is",
+    "options": [
+      "It cannot handle categorical variables.",
+      "It can not be applied to non-differentiable functions.",
+      "It is not suitable for datasets with a large number of features.",
+      "It cannot handle missing data.",
+      "It cannot be used with neural networks.",
+      "It runs reasonably slow for multiple linear regression.",
+      "It can only be used for binary classification problems.",
+      "It is hard to implement.",
+      "It can not be applied to non-continuous functions."
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "computer science",
+    "src": "ori_mmlu-machine_learning"
+  },
+  {
+    "question_id": 19,
+    "question": "Based on the paper “SoK: SSL and HTTPS: Revisiting past challenges and evaluating certificates trust model enhancements”, which of the following statements are false?",
+    "options": [
+      "Valid DV certificates provide more confidence to a user that she is connecting to the intended party than valid EV certificates.",
+      "OCSP stapling allows a server to prove to a browser that its certificate hasn’t been revoked.",
+      "DANE makes it difficult for an adversary to launch a SSL stripping attack.",
+      "Server key-pinning makes it harder for an adversary to convince a CA to mint a certificate for a site and launch an MITM attack on that site."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "computer science",
+    "src": "ori_mmlu-computer_security"
+  },
+  {
+    "question_id": 20,
+    "question": "TCP protocol is responsible (among other things) for",
+    "options": [
+      "Ensuring secure and encrypted communication between machines",
+      "Enabling communication between different network protocols",
+      "Routing packets through the network",
+      "Managing the energy consumption of network devices",
+      "Dealing with differences among operating system architectures",
+      "Reliable delivery of large (multi-packet) messages between machines that are not necessarily directly connected",
+      "Managing the physical layer of network communication",
+      "Providing a user interface for network communication",
+      "Reliable delivery of packets between directly connected machines"
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "computer science",
+    "src": "ori_mmlu-college_computer_science"
+  },
+  {
+    "question_id": 21,
+    "question": "The highest ocean tides occur when Earth and the Moon are",
+    "options": [
+      "at a 45-degree angle to the Sun",
+      "both at their furthest point from the Sun",
+      "both at their closest point to the Sun",
+      "lined up during winter",
+      "at any angle to the Sun",
+      "furthest from each other",
+      "at right angles to the Sun",
+      "lined up with the Sun",
+      "lined up during spring",
+      "closest to each other"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "physics",
+    "src": "ori_mmlu-conceptual_physics"
+  },
+  {
+    "question_id": 22,
+    "question": "The Gravitron is a carnival ride that looks like a large cylinder. People stand inside the cylinder against the wall as it begins to spin. Eventually, it is rotating fast enough that the floor can be removed without anyone falling. Given then the coefficient of friction between a person’s clothing and the wall is μ, the tangential speed is v, and the radius of the ride is R, what is greatest mass that a person can be to safely go on this ride?",
+    "options": [
+      "Rv^2/(μg)",
+      "gR/(μv^2)",
+      "None of the options are correct.",
+      "rg/(μv^2)",
+      "r^2v^2/(μg)",
+      "μv^2/(rg)",
+      "v^2/(μgR)",
+      "None of the above.",
+      "μgR/v^2",
+      "μRv^2/g"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "physics",
+    "src": "ori_mmlu-high_school_physics"
+  },
+  {
+    "question_id": 23,
+    "question": "The coefficient of static friction between a small coin and the surface of a turntable is 0.30. The turntable rotates at 33.3 revolutions per minute. What is the maximum distance from the center of the turntable at which the coin will not slide?",
+    "options": [
+      "0.300 m",
+      "0.150 m",
+      "0.121 m",
+      "0.10 m",
+      "0.242 m",
+      "0.048 m",
+      "0.200 m",
+      "0.500 m",
+      "0.024 m",
+      "0.362 m"
+    ],
+    "answer": "E",
+    "answer_index": 4,
+    "category": "physics",
+    "src": "ori_mmlu-college_physics"
+  },
+  {
+    "question_id": 24,
+    "question": "A rock drops onto a pond with a smooth surface. A few moments later, the wave produced by the rock’s impact arrives at the shore, touching the ankles of a wading child. Which of the following observations provides evidence that the portion of the wave hitting the child’s ankles carries less energy than the wave did when it was first created by the rock’s impact?",
+    "options": [
+      "The wave has become more turbulent.",
+      "The wave has split into multiple smaller waves.",
+      "The wave pulse’s width has become greater.",
+      "The wave's height has become greater.",
+      "The wave is moving more slowly.",
+      "The wave pulse’s width has become smaller.",
+      "The wave's speed has increased.",
+      "The wave’s height has become smaller.",
+      "The temperature of the water has changed.",
+      "The wave's color has changed."
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "physics",
+    "src": "ori_mmlu-high_school_physics"
+  },
+  {
+    "question_id": 25,
+    "question": "A block is dragged along a table and experiences a frictional force, f, that opposes its movement. The force exerted on the block by the table is",
+    "options": [
+      "parallel to the table",
+      "equal to the frictional force",
+      "in the opposite direction of movement",
+      "perpendicular to the table",
+      "in the direction of movement",
+      "zero",
+      "equal to the gravitational force",
+      "neither parallel nor perpendicular to the table",
+      "always greater than the frictional force",
+      "always less than the frictional force"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "physics",
+    "src": "ori_mmlu-high_school_physics"
+  },
+  {
+    "question_id": 26,
+    "question": "An electron (mass = m, charge = -E) is rotated with speed V upwards, in the plane of the page, into a region containing a uniform magnetic field B, that is directed into the plane of the page. Describe the electron's subsequent circular motion.",
+    "options": [
+      "Counterclockwise rotation; radius of path = mv*eB",
+      "Counterclockwise rotation; radius of path = mv/(eB)",
+      "No rotation; radius of path = eB/(mv)",
+      "Counterclockwise rotation; radius of path = eB/(mv)",
+      "Clockwise rotation; radius of path = mv/(eB)",
+      "Clockwise rotation; radius of path = mv*eB",
+      "Counterclockwise rotation; radius of path = eB/mv^2",
+      "No rotation; radius of path = mv/(eB)",
+      "Clockwise rotation; radius of path = eB/(mv)",
+      "Clockwise rotation; radius of path = eB/mv^2"
+    ],
+    "answer": "E",
+    "answer_index": 4,
+    "category": "physics",
+    "src": "ori_mmlu-high_school_physics"
+  },
+  {
+    "question_id": 27,
+    "question": "A single-electron atom has the electron in the l = 2 state. The number of allowed values of the quantum number m_l is",
+    "options": [
+      "8",
+      "5",
+      "3",
+      "2",
+      "6",
+      "9",
+      "4",
+      "1",
+      "7",
+      "0"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "physics",
+    "src": "ori_mmlu-college_physics"
+  },
+  {
+    "question_id": 28,
+    "question": "The fact that the Moon always shows its same face to Earth is evidence that the Moon rotates about its axis about once per",
+    "options": [
+      "day",
+      "decade",
+      "it does not rotate, it revolves around the Earth.",
+      "it rotates twice in a month",
+      "it rotates once every two months",
+      "year",
+      "century",
+      "week",
+      "None of these for the moon does not rotate about an axis",
+      "month"
+    ],
+    "answer": "J",
+    "answer_index": 9,
+    "category": "physics",
+    "src": "ori_mmlu-conceptual_physics"
+  },
+  {
+    "question_id": 29,
+    "question": "When you squeeze an air-filled party balloon, you increase its",
+    "options": [
+      "buoyancy",
+      "density",
+      "weight",
+      "mass",
+      "color intensity",
+      "temperature",
+      "elasticity",
+      "volume",
+      "length",
+      "air pressure"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "physics",
+    "src": "ori_mmlu-conceptual_physics"
+  },
+  {
+    "question_id": 30,
+    "question": "The ROM programmed during manufacturing process itself is called",
+    "options": [
+      "PROM",
+      "MROM",
+      "DRAM",
+      "EPROM",
+      "SRAM",
+      "Cache Memory",
+      "VRAM",
+      "Flash Memory",
+      "RAM",
+      "EEPROM"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 31,
+    "question": "A sinusoidal signal is analog signal, because",
+    "options": [
+      "it is a square wave signal",
+      "it has a constant frequency",
+      "it is positive for one half cycle",
+      "it can only have a single value at a time",
+      "it has a sinusoidal waveform",
+      "it can only have two values: positive and negative",
+      "it can have a number of values between the negative and positive peaks",
+      "it has positive as well as negative values",
+      "it is a digital signal",
+      "it is negative for one half cycle"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 32,
+    "question": "How many bits are required to store one BCD digit ?",
+    "options": [
+      "7",
+      "10",
+      "2",
+      "3",
+      "5",
+      "4",
+      "9",
+      "6",
+      "1",
+      "8"
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 33,
+    "question": "Two infinite parallel metal plates are charged with equal surface charge density of the same polarity. The electric field in the gap between the plates is",
+    "options": [
+      "inversely proportional to the distance between the plates.",
+      "quadruple the field produced by one plate.",
+      "zero.",
+      "dependent on the thickness of the plates.",
+      "dependent on coordinates of field points.",
+      "proportional to the square of the distance between the plates.",
+      "double the field produced by one plate.",
+      "half the field produced by one plate.",
+      "triple the field produced by one plate.",
+      "same as that produced by one plate."
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 34,
+    "question": "A single phase full bridge inverter can operated in load commutation mode in case load consist of",
+    "options": [
+      "Purely resistive load.",
+      "RL.",
+      "RLC underdamped with a parallel connection.",
+      "RLC critically damped.",
+      "RLC underdamped with a series connection.",
+      "Capacitive load.",
+      "RLC underdamped.",
+      "Purely inductive load.",
+      "RLC overdamped."
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 35,
+    "question": "A long wire composed of a smooth round conductor runs above and parallel to the ground (assumed to be a large conducting plane). A high voltage exists between the conductor and the ground. The maximum electric stress occurs at",
+    "options": [
+      "the point farthest from the ground on the conductor's surface.",
+      "lower surface of the conductor.",
+      "upper surface of the conductor.",
+      "the midpoint of the conductor's surface.",
+      "the point where the conductor and ground surface meet.",
+      "the ground surface.",
+      "midway between the conductor and ground.",
+      "the point of the conductor farthest from the ground surface.",
+      "the point closest to the ground on the conductor's surface."
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 36,
+    "question": "A Lissajous pattern on an oscilloscope has 5 horinzontal tangencies and 2 vertical tangencies. The frequency of horizontal input is 100 Hz. The frequency of the vertical will be",
+    "options": [
+      "750 Hz.",
+      "250 Hz.",
+      "625 Hz.",
+      "500 Hz.",
+      "800 Hz.",
+      "400 Hz.",
+      "200 Hz.",
+      "900 Hz.",
+      "350 Hz.",
+      "150 Hz."
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "engineering",
+    "src": "ori_mmlu-electrical_engineering"
+  },
+  {
+    "question_id": 37,
+    "question": "An experiment was performed to determine the moles of carbon dioxide gas formed (collected over water) when an acid reacts with limestone. To do this, a piece of dry limestone was weighed. Then carbon dioxide was collected until the limestone disappeared. The atmospheric pressure was measured at 0.965 atm. The temperature was 295 K. The volume of CO2 was measured to the nearest mL and corrected for the vapor pressure of water. The student continuously got low results from what was expected. Can you suggest why?",
+    "options": [
+      "Perhaps there was too much acid, which interfered with the results.",
+      "The measurement of atmospheric pressure was incorrect.",
+      "Carbon dioxide is rather soluble in water.",
+      "The temperature might have affected the reaction.",
+      "Limestone is Ca(HCO3)2.",
+      "The limestone did not fully disappear.",
+      "Limestone is never pure CaCO3.",
+      "Perhaps there was not enough acid to dissolve all the limestone.",
+      "The volume of CO2 was not measured correctly.",
+      "The vapor pressure of water was not correctly accounted for."
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "chemistry",
+    "src": "ori_mmlu-high_school_chemistry"
+  },
+  {
+    "question_id": 38,
+    "question": "An electron and a proton are placed in a 1.0 T magnetic field at 300 K. What is the ratio of the equilibrium polarizations: |pe / pH| ?",
+    "options": [
+      "1000",
+      "250",
+      "658",
+      "[|ɣe| = 1.761 x 10^11 T^-1 s^-1]",
+      "410",
+      "1024",
+      "1640",
+      "329",
+      "500",
+      "820"
+    ],
+    "answer": "J",
+    "answer_index": 9,
+    "category": "chemistry",
+    "src": "ori_mmlu-college_chemistry"
+  },
+  {
+    "question_id": 39,
+    "question": "What is the limiting high-temperature molar heat capacity at constant volume (C_V) of a gas-phase diatomic molecule?",
+    "options": [
+      "4.5R",
+      "2.2R",
+      "1R",
+      "4R",
+      "2R",
+      "2.5R",
+      "5R",
+      "3R",
+      "3.5R",
+      "1.5R"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "chemistry",
+    "src": "ori_mmlu-college_chemistry"
+  },
+  {
+    "question_id": 40,
+    "question": "During a delay, spins with an offset frequency Ω = 250 rad s-1 precess through an angle of 60°. How long is the delay?",
+    "options": [
+      "1.8 seconds",
+      "400 ms",
+      "32.7 ms",
+      "2 seconds",
+      "4.19 ms",
+      "26.3 ms",
+      "500 ms",
+      "240 ms",
+      "1510 ms",
+      "8.5 ms"
+    ],
+    "answer": "E",
+    "answer_index": 4,
+    "category": "chemistry",
+    "src": "ori_mmlu-college_chemistry"
+  },
+  {
+    "question_id": 41,
+    "question": "What is the maximum value of the z-component of the spin angular momentum of 43Ca? [I = 7⁄2]",
+    "options": [
+      "10.492 x 10^-34 J s",
+      "2.549 x 10^-34 J s",
+      "5.493 x 10^-34 J s",
+      "4.185 x 10^-34 J s",
+      "1.238 x 10^-34 J s",
+      "8.370 x 10^-34 J s",
+      "6.234 x 10^-34 J s",
+      "9.854 x 10^-34 J s",
+      "3.691 x 10^-34 J s",
+      "7.123 x 10^-34 J s"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "chemistry",
+    "src": "ori_mmlu-college_chemistry"
+  },
+  {
+    "question_id": 42,
+    "question": "The T2 of an NMR line is 15 ms. Ignoring other sources of linebroadening, calculate its linewidth.",
+    "options": [
+      "30.1 Hz",
+      "0.0471 Hz",
+      "42.4 Hz",
+      "100.1 Hz",
+      "84.8 Hz",
+      "52.8 Hz",
+      "21.2 Hz",
+      "66.7 Hz",
+      "15.7 Hz",
+      "10.5 Hz"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "chemistry",
+    "src": "ori_mmlu-college_chemistry"
+  },
+  {
+    "question_id": 43,
+    "question": "Using fundamental trends in electronegativity and bond strength, which of the following should be the strongest acid?",
+    "options": [
+      "H2Se",
+      "H2CO3",
+      "H2S",
+      "HBr",
+      "H2O",
+      "HF",
+      "HI",
+      "HCl",
+      "H3P",
+      "H2Te"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "chemistry",
+    "src": "ori_mmlu-high_school_chemistry"
+  },
+  {
+    "question_id": 44,
+    "question": "What is the molarity of a sodium hydroxide solution that requires 42.6 mL of 0.108 M HCl to neutralize 40.0 mL of the base?",
+    "options": [
+      "0.0641 M",
+      "0.045 M",
+      "0.250 M",
+      "0.200 M",
+      "0.400 mol/L",
+      "0.108 M",
+      "0.500 M",
+      "1.64 M",
+      "0.115 M",
+      "0.300 M"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "chemistry",
+    "src": "ori_mmlu-high_school_chemistry"
+  },
+  {
+    "question_id": 45,
+    "question": "This process has as its products NADP+, ADP, and sugar.",
+    "options": [
+      "Oxidative phosphorylation",
+      "Glycolysis",
+      "Beta oxidation",
+      "Chemiosmosis",
+      "Light-dependent reactions",
+      "Pyruvate oxidation",
+      "Fermentation",
+      "Calvin cycle",
+      "Krebs cycle",
+      "Anaerobic respiration"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "biology",
+    "src": "ori_mmlu-high_school_biology"
+  },
+  {
+    "question_id": 46,
+    "question": "Double fertilization is a unique feature of flowering plants. In this process, one sperm unites with the egg to yield a zygote. The second sperm unites with the polar nuclei to initiate the formation of the",
+    "options": [
+      "megagametophyte",
+      "embryo",
+      "microgametophyte",
+      "perisperm",
+      "seed coat",
+      "cotyledon",
+      "endosperm",
+      "epidermis",
+      "endodermis",
+      "seed embryo"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "biology",
+    "src": "ori_mmlu-college_biology"
+  },
+  {
+    "question_id": 47,
+    "question": "In the process of generating ATP, hydrogen ions (H+, or protons) are transported across the inner mitochondrial membrane and the thylakoid membrane by a proton pump (an ATPase). You would expect to find similar proton pumps in the plasma membranes of",
+    "options": [
+      "mammalian skin cells",
+      "bacteria",
+      "mammalian nerve cells",
+      "bird cells",
+      "insects",
+      "mammalian blood cells",
+      "mammalian bone cells",
+      "mammalian muscle cells",
+      "amphibian cells",
+      "plants and fungi"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "biology",
+    "src": "ori_mmlu-high_school_biology"
+  },
+  {
+    "question_id": 48,
+    "question": "Viruses have encouraged us to change our world, as we have now:",
+    "options": [
+      "Developed a universal vaccine for all types of flu",
+      "Eradicated polio",
+      "Created a vaccine for the common cold",
+      "Found a cure for all types of cancer",
+      "Eradicated smallpox",
+      "Completely stopped the spread of all infectious diseases",
+      "Developed immunity to all types of viruses",
+      "Eradicated HIV/AIDS"
+    ],
+    "answer": "E",
+    "answer_index": 4,
+    "category": "health",
+    "src": "ori_mmlu-virology"
+  },
+  {
+    "question_id": 49,
+    "question": "A rise in intracellular free calcium in the sea urchin oocyte causes the release of proteolytic enzymes which act to prevent polyspermy. The events just described entail the",
+    "options": [
+      "polyspermy reaction",
+      "enzymatic reaction",
+      "proteolytic reaction",
+      "acrosomal reaction",
+      "oocyte reaction",
+      "fertilization reaction",
+      "calcium reaction",
+      "cortical reaction",
+      "zona reaction",
+      "intracellular reaction"
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "biology",
+    "src": "ori_mmlu-college_biology"
+  },
+  {
+    "question_id": 50,
+    "question": "Which of the following statements about the immune system is NOT correct?",
+    "options": [
+      "Innate immunity, also known as the adaptive immune response, relies on circulating phagocytes engulfing foreign substances.",
+      "Adaptive immunity is a slower response than innate immunity.",
+      "Innate immunity activates a humoral response.",
+      "Dendritic cells are antigen presenting cells."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "biology",
+    "src": "ori_mmlu-high_school_biology"
+  },
+  {
+    "question_id": 51,
+    "question": "Two related species evolve in a way that makes them less similar.",
+    "options": [
+      "Coevolution",
+      "Punctuated equilibrium",
+      "Directional selection",
+      "Divergent evolution",
+      "Convergent evolution",
+      "Gradualism",
+      "Speciation",
+      "Adaptive radiation",
+      "Parallel evolution",
+      "Stabilizing selection"
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "biology",
+    "src": "ori_mmlu-high_school_biology"
+  },
+  {
+    "question_id": 52,
+    "question": "The same gene that causes various coat patterns in wild and domesticated cats also causes the cross-eyed condition in these cats, the cross-eyed condition being slightly maladaptive. In a hypothetical environment, the coat pattern that is associated with crossed eyes is highly adaptive, with the result that both the coat pattern and the cross-eyed condition increase in a feline population over time. Which statement is supported by these observations?",
+    "options": [
+      "Genetic mutations causing the coat pattern are more likely to occur in this population.",
+      "Natural selection always results in the elimination of maladaptive traits.",
+      "Polygenic inheritance is generally maladaptive, and should become less common in future generations.",
+      "This scenario disproves the theory of evolution.",
+      "The cross-eyed condition is actually an adaptive trait in this environment.",
+      "The coat pattern gene and the cross-eyed condition gene are separate and unrelated.",
+      "Phenotype is often the result of compromise.",
+      "Evolution is progressive and tends toward a more perfect population.",
+      "Natural selection reduces the frequency of maladaptive genes in populations over the course of time.",
+      "The cross-eyed condition will eventually disappear from the population as it is maladaptive."
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "biology",
+    "src": "ori_mmlu-high_school_biology"
+  },
+  {
+    "question_id": 53,
+    "question": "Which of the following is true about the diagnosis of \"osteopenia\" or \"osteoporosis\" in North America and Western Europe\n",
+    "options": [
+      "Women under age 50 are more likely to have osteoporosis than osteopenia",
+      "More than 50% of men over age 50 have osteopenia",
+      "Osteoporosis is defined as a bone density lower than 2.5 standard deviations below the average for age-matched controls.",
+      "Women over age 80 with osteopenia have above average bone mineral density for their age",
+      "Fewer than 10% of women over age 50 have osteopenia",
+      "Osteopenia is defined as a bone density lower than 1 standard deviation below the average for age-matched controls",
+      "Osteoporosis is less common in North America compared to Western Europe",
+      "Fewer than 50% of women over age 80 have osteopenia or osteoporosis",
+      "Osteopenia is more common in men than in women"
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "health",
+    "src": "ori_mmlu-nutrition"
+  },
+  {
+    "question_id": 54,
+    "question": "A 23-year-old woman comes to the physician for genetic counseling prior to conception. Her brother and maternal uncle had Duchenne muscular dystrophy (DMD) and died at the ages of 28 and 17 years, respectively. Genetic analysis was not performed on either relative prior to death. Serum studies show a muscle creatine kinase concentration of 120 U/L (N=22– 198). The patient's 50-year-old mother has a serum muscle creatine kinase concentration of 300 U/L. Which of the following is the most appropriate assessment of this patient's carrier status for this disease?",
+    "options": [
+      "The patient is not a carrier of the DMD as her muscle creatine kinase concentration is within the normal range",
+      "The patient's mother is a carrier, hence the patient is definitely a carrier too",
+      "The patient is a carrier of the disease based on her family history of DMD",
+      "The patient's DMD carrier status is uncertain due to lack of genetic analysis on her deceased relatives.",
+      "The patient has a 25% risk of having a child with DMD",
+      "The patient is a carrier of the disease based on her mother's elevated creatine kinase concentration",
+      "The patient's DMD carrier status is certain due to maternal transmission",
+      "The patient has a 50% risk of having a child with DMD",
+      "The patient's DMD carrier status is uncertain because of random X inactivation",
+      "The patient is not a carrier of the DMD based on her normal creatine kinase concentration"
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "health",
+    "src": "ori_mmlu-professional_medicine"
+  },
+  {
+    "question_id": 55,
+    "question": "A 42-year-old man comes to the physician for a follow-up examination. Four months ago, he underwent repair of a Dupuytren contracture. Physical examination shows decreased range of motion in the affected hand. The patient is upset that his hand has not fully healed, and he files a malpractice suit against the physician. Which of the following is the most likely precipitating factor in this patient's decision to file a malpractice suit?",
+    "options": [
+      "The patient's dissatisfaction with the outcome of the surgery",
+      "The patient's unrealistic expectations of the surgery's results",
+      "The patient's perception that the physician is uncaring",
+      "The patient's belief that the physician did not take his concerns seriously",
+      "The patient's perception that the physician is incompetent",
+      "The patient's socioeconomic status",
+      "The patient's perception that the physician is unprofessional",
+      "The physician's amount of experience in the medical field",
+      "The patient's perception that the physician did not spend enough time with him",
+      "The patient's belief that the physician did not explain the risks of the surgery"
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "health",
+    "src": "ori_mmlu-professional_medicine"
+  },
+  {
+    "question_id": 56,
+    "question": "All of the following are true regarding the function of neurons EXCEPT:",
+    "options": [
+      "The refractory period prevents the neuron from initiating a new action potential.",
+      "The transmitting neuron secretes neurotransmitters into the synaptic cleft from its dendrites.",
+      "An action potential is initiated when the axon hillock reaches the threshold potential.",
+      "The action potential travels along the axon away from the cell body.",
+      "Hyperpolarization occurs when the membrane potential becomes more negative than the resting potential.",
+      "The flow of sodium into the neuron depolarizes the membrane in the first phase of an action potential.",
+      "Hyperpolarization at the end of an action potential is one mechanism by which neurons limit the rate at which action potentials may fire.",
+      "The neuron releases neurotransmitters into the synaptic cleft from the axon terminals."
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "health",
+    "src": "ori_mmlu-college_medicine"
+  },
+  {
+    "question_id": 57,
+    "question": "Which of the following vitamins provides the cofactor for hydroxylation reactions in collagen synthesis?\n",
+    "options": [
+      "Vitamin C",
+      "Niacin",
+      "Vitamin D",
+      "Riboflavin",
+      "Vitamin E",
+      "Vitamin A",
+      "Vitamin K",
+      "Folate",
+      "Biotin",
+      "Thiamine"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "health",
+    "src": "ori_mmlu-nutrition"
+  },
+  {
+    "question_id": 58,
+    "question": "A 25-year-old man is brought to the emergency department because of a 6-day history of fever, severe muscle pain, and diffuse, painful swelling of his neck, underarms, and groin area. The symptoms began after returning from a camping trip in New Mexico. He appears ill and lethargic and can barely answer questions. His temperature is 39.2°C (102.5°F), pulse is 120/min, respirations are 22/min, and blood pressure is 110/70 mm Hg. Physical examination shows generalized scattered black maculae. Examination of the right upper extremity shows an erythematous, solid, tender mass on the underside of the upper extremity just above the elbow; the mass is draining blood and necrotic material. The most effective antibiotic for this patient’s disorder will interfere with which of the following cellular processes or enzymes? ",
+    "options": [
+      "Ribosomal assembly",
+      "RNA polymerase activity",
+      "Mitochondrial ATP synthesis",
+      "Glucuronosyltransferase",
+      "DNA helicase",
+      "Proteasomal degradation",
+      "Phospholipase function",
+      "Lipid synthesis",
+      "Topoisomerase II activity",
+      "Cell wall synthesis"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "health",
+    "src": "ori_mmlu-professional_medicine"
+  },
+  {
+    "question_id": 59,
+    "question": "During assigned seat-work time, Mary, a firstgrade student, sometimes leaves her seat and attempts to play with a block collection. When she leaves her seat, she fails to complete her seat work. Which of the following behavioral intervention strategies will most effectively increase the long-term likelihood that Mary will complete her seat work?",
+    "options": [
+      "Instituting a class-wide reward system for staying in seats during work time",
+      "Giving Mary additional seat work as a consequence for leaving her seat",
+      "Having a one-on-one talk with Mary about the importance of discipline in class",
+      "Allowing Mary to read from a teacherselected book for a specific period of time before beginning her seat work",
+      "Removing the blocks from the classroom during the assigned seat-work time",
+      "Assigning a classmate to monitor Mary's behavior during seat-work time",
+      "Allowing Mary to play with the blocks afterward if she remains in her seat throughout the assigned seat-work time",
+      "Explaining to Mary the value of completing seat work in terms of the objectives of the lesson",
+      "Allowing Mary to play with the blocks while doing her seat work",
+      "Ignoring Mary when she leaves her seat to play with the blocks"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "psychology",
+    "src": "ori_mmlu-high_school_psychology"
+  },
+  {
+    "question_id": 60,
+    "question": "A graduate student’s dissertation chair, Dr. X, turns out to be of little help, and the student ends up obtaining advice and assistance from an associate professor, Dr. Z. Dr. X does review the dissertation when it is completed and she is listed as the dissertation chair. Several months later, the student decides to write an article for a professional journal that is based his dissertation research. In terms of publication credit:",
+    "options": [
+      "Dr. Z should not be listed as an author since she is not the student's official dissertation chair.",
+      "Dr. Y and Dr. Z should be listed as co-authors.",
+      "Dr. X should be listed as second author since she was the student’s official dissertation chair.",
+      "The student should be the sole author as the research is based on his dissertation.",
+      "Dr. X should be listed as first author since she was the student’s official dissertation chair.",
+      "Dr. Z should be listed as first author if her contribution was substantial.",
+      "Dr. X and Dr. Z should be listed as co-authors with no particular order.",
+      "Dr. Z should be listed as second author if her contribution warrants it.",
+      "Dr. X should be listed as second author and Dr. Z should not be included as an author.",
+      "Dr. Z should be listed as first author, and the student should be listed as second author."
+    ],
+    "answer": "H",
+    "answer_index": 7,
+    "category": "psychology",
+    "src": "ori_mmlu-professional_psychology"
+  },
+  {
+    "question_id": 61,
+    "question": "Which classical conditioning term best describes the following scenario: Later in his classical conditioning experiments, Ivan Pavlov's dogs began to salivate whenever they heard any sound similar to a bell, such as a doorbell or someone accidentally clinking a water glass.",
+    "options": [
+      "negative reinforcement",
+      "generalization",
+      "acquisition",
+      "discrimination",
+      "counter conditioning",
+      "trace conditioning",
+      "spontaneous recovery",
+      "stimulus control",
+      "extinction",
+      "operant conditioning"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "psychology",
+    "src": "ori_mmlu-high_school_psychology"
+  },
+  {
+    "question_id": 62,
+    "question": "Which of the following must be done when universal screening data show that very few students are successfully meeting school competencies?",
+    "options": [
+      "The school must invest in more modern educational technology.",
+      "Students who are not meeting competencies must be placed in lower grade levels.",
+      "Students must be given more time to develop competencies.",
+      "The school must hire more teachers to reduce class size.",
+      "Parents of students not meeting competencies must be contacted for meetings.",
+      "Students who are not meeting competencies must be given strategic or supplemental instruction.",
+      "Changes must be made in the delivery of the core program.",
+      "The school competencies standards must be lowered.",
+      "Students who are not meeting competencies must be evaluated for learning disabilities.",
+      "Increase the amount of homework for students who are not meeting competencies."
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "psychology",
+    "src": "ori_mmlu-high_school_psychology"
+  },
+  {
+    "question_id": 63,
+    "question": "In Gestalt therapy, transference is usually",
+    "options": [
+      "seen as a projection of the therapist's issues",
+      "ignored as it is not relevant to the therapy process",
+      "created ab a fantasy of the client",
+      "encouraged to deepen the therapeutic relationship",
+      "seen as a sign of client's regression",
+      "considered a sign that therapy is progressing favorably",
+      "interpreted to the patient early in treatment",
+      "worked through via dream work",
+      "considered a sign of resistance from the client"
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "psychology",
+    "src": "ori_mmlu-professional_psychology"
+  },
+  {
+    "question_id": 64,
+    "question": "The president of a pharmaceutical firm received a report from his testing bureau that a manufactured lot of the firmÕs anticancer prescription medication was well below strength. Concerned about being able to fulfill contractual commitments, the president instructed his staff to deliver the defective lot. A cancer patient who had been maintained on the drug died shortly after beginning to take the defective pills. Medical evidence established that the patient would have lived longer had the drug been at full strength, but would have died before long in any event. The president was convicted of murder. On appeal, he argues that his conviction should be reversed. Should the conviction be reversed?",
+    "options": [
+      "Yes, because the president was merely trying to fulfill contractual obligations.",
+      "No, because the intentional delivery of adulterated or mislabeled drugs gives rise to strict criminal liability.",
+      "No, because the president's actions directly contributed to the patient's premature death.",
+      "Yes, because the president was not aware of the specific patient who would consume the defective drug.",
+      "No, because the jury could have found that the presidentÕs conduct was sufficiently reckless to constitute murder.",
+      "No, because the president violated his duty of care towards the patient.",
+      "Yes, because distribution of the defective lot was only a regulatory offense.",
+      "No, because the president knowingly delivered the defective drugs which directly led to the patient's death.",
+      "Yes, because the cancer, not the presidentÕs conduct, was the proximate cause of death of the patient.",
+      "Yes, because the patient would have died regardless of the drug's effectiveness."
+    ],
+    "answer": "E",
+    "answer_index": 4,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 65,
+    "question": "A student was a practical joker who liked to perform zany antics. Late at night after studying, he would often walk around the campus dressed only in a raincoat and boxers. As he approached young women, he would flash them by opening his raincoat and exposing himself in his shorts. The student believed that he was committing a crime by flashing himself in front of the co-eds. In this jurisdiction, it is a felony to flash or expose oneself in the nude, so, unknown to the student, what he was doing was not a crime. One night, the student broke into a sorority house intending to flash the sorority sisters. Clad only in his raincoat and shorts, he entered the bedroom of one of the sisters who was lying in her bed studying for an exam. The sister, who knew the student, said, \"What are you doing here? Shouldn't you be studying for finals?\" The student then took off his raincoat and responded, \"Study this, baby!\" He then began to run through the sorority house in his shorts. Shortly thereafter, the police arrived and placed the student under arrest. If the student is prosecuted, he should be found guilty of which, if any, of the following crimes?",
+    "options": [
+      "Neither burglary nor attempted violation of the statute.",
+      "Attempted violation of the statute.",
+      "Both indecent exposure and attempted violation of the statute.",
+      "Both trespassing and attempted violation of the statute.",
+      "Both burglary and indecent exposure.",
+      "Trespassing only.",
+      "Both burglary and attempted violation of the statute.",
+      "Indecent exposure only.",
+      "Both burglary and trespassing."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 66,
+    "question": "A man kidnapped a victim in State A and transported the victim across the state border into State B. These actions violated the kidnapping laws of both states, which are identical. A jury convicted the man in a State A court, but the trial judge gave what prosecutors in State B deemed an unduly lenient sentence. The state prosecutor in State B then commenced a kidnapping case against the man for violating State B's kidnapping statute. The man's lawyer has filed a motion in State B to dismiss the charge based on the double jeopardy protection against a second prosecution for the man's single act of kidnapping. Should the court grant the motion to dismiss?",
+    "options": [
+      "No, because the man committed two separate acts of kidnapping, one in each state.",
+      "Yes, because the man was already tried and convicted for the same crime in State A.",
+      "Yes, because the double jeopardy protection applies to both state and federal laws.",
+      "No, because the man's conduct violated the laws of two different states, and each has the right to enforce its laws. right to enforce its laws.",
+      "No, because the double jeopardy protection only applies to federal law.",
+      "Yes, because the double jeopardy protection applies even when laws of different states are identical.",
+      "No, because the man's sentence in State A was deemed unduly lenient in State B.",
+      "Yes, because the government is collaterally estopped under the double jeopardy protection from prosecuting a defendant a second time for the same conduct that led to an earlier conviction.",
+      "Yes, because the double jeopardy protection prohibits a second prosecution following a conviction for the same offense.",
+      "No, because the double jeopardy protection only prohibits a second prosecution following an acquittal for the same offense."
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 67,
+    "question": "A man suffered frostbite when he spilled a soft drink on his lap that he had purchased from a restaurant. The man sued the restaurant for negligence and damages. At trial, the man's attorney calls a witness to testify that the witness also suffered frostbite when she spilled a soft drink in her lap that she had purchased at the restaurant two weeks earlier. The witness also states that she told the restaurant about her injury immediately after suffering it. Upon objection by the restaurant's attorney, the trial judge should rule the witness's testimony ",
+    "options": [
+      "admissible to prove that the restaurant should have been aware of the danger of frostbite posed by its soft drinks.",
+      "admissible, but only to prove the restaurant's negligence and not for any claims of damages.",
+      "admissible, as it is a similar occurrence and can prove a pattern of negligence by the restaurant.",
+      "inadmissible, because it seeks to put into evidence separate, unrelated transactions with a third party.",
+      "inadmissible, because it constitutes character evidence against the restaurant.",
+      "inadmissible, as it is hearsay and not directly related to the man's case.",
+      "admissible to prove the restaurant's negligence, provided that the court gives a cautionary instruction that the testimony should not be considered as bearing on the issue of damages.",
+      "inadmissible, because it is not probative of a fact in issue.",
+      "inadmissible, as it is an unrelated incident and does not prove the restaurant's negligence in the man's case.",
+      "admissible, as it demonstrates the restaurant's knowledge of the risk associated with their soft drinks."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 68,
+    "question": "A large man with red hair robbed a liquor store. Thereafter, a defendant was arrested and charged with the armed robbery. At the defendant's trial, several eyewitnesses testified that they had seen a large redheaded man pull out a gun and rob the owner of the liquor store. The defendant appeared at trial with a shaven head. The prosecution calls a corrections officer to testify that the defendant had red hair when he was first brought to jail. The defendant's counsel objects. The trial judge should rule the correction officer's testimony",
+    "options": [
+      "inadmissible, because the corrections officer was not present at the scene of the crime.",
+      "inadmissible, because it is irrelevant to the case.",
+      "inadmissible, because it is opinion testimony.",
+      "admissible as a character evidence.",
+      "admissible as a prior identification.",
+      "admissible, as it is a part of the arresting officer's routine report.",
+      "admissible, as it is a part of the chain of evidence in the case.",
+      "inadmissible as hearsay not within any recognized exception.",
+      "admissible, for the limited purpose of clarifying the discrepancy in the witnesses' testimony.",
+      "inadmissible, as it is prejudicial against the defendant."
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 69,
+    "question": "A 73-year-old widower owned a 40-acre farm. The widower had two children, a son and a daughter. After the daughter married, she and her husband lived on the farm in a small cottage. From 1985 to 1989, the daughter and the husband helped the widower farm and maintain the property. The widower, whose health was deteriorating, needed the services of the daughter and her husband in order to continue to live on the farm. In December 1989, the daughter told the widower that she and her husband were planning to move out of state. Worried that he could not survive without their help, the widower said to the daughter, \"Please don't ever leav. e. I'm totally dependent on you and your husband. If you stay and continue to care for me and help with the farming, the farm will be yours when I die. \" The daughter turned down a job offer in a neighboring state and decided to do as the widower requested. For nine years, the daughter cared for her father while her husband handled most of the farming operations. In 1998, the widower died intestate with the daughter and the son as his only surviving heirs. The period required to acquire title by adverse possession in the jurisdiction is seven years. In an appropriate action to determine the legal and equitable rights of the daughter and the son, respectively, in the farm, the result will depend upon the application of the principles of and exceptions to the",
+    "options": [
+      "doctrine of equitable conversion.",
+      "doctrine of resulting trusts.",
+      "parol evidence rule.",
+      "doctrine of constructive trusts.",
+      "principle of promissory note.",
+      "statute of frauds.",
+      "rule against perpetuities.",
+      "law for adverse possession."
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 70,
+    "question": "A construction contractor brought a breach of contract claim in federal court against a homeowner who had hired the contractor to build an apartment over an existing garage. The action turned on the scope of the work covered by the contract. The contractor and the homeowner were the only witnesses at the bench trial, and they strongly disagreed about the scope of the work. At the end of the trial, the judge stated findings of fact on the record but never issued a written opinion. Neither party objected to the findings. The judge found in favor of the homeowner, and the contractor appealed. Is the appellate court likely to overturn the findings?",
+    "options": [
+      "No, because the appellate court must give due regard to the trial judge's opportunity to determine witness credibility.",
+      "Yes, because the contractor and homeowner had different views on the scope of the work.",
+      "Yes, because a judge must set forth findings of fact in a written opinion or memorandum of decision.",
+      "No, because the judge's findings of fact were stated on the record.",
+      "Yes, because the homeowner was found in favor.",
+      "No, because the contractor brought the claim in federal court.",
+      "Yes, because there were disputed issues of fact at trial.",
+      "No, because the contractor didn't provide sufficient evidence to support the claim.",
+      "Yes, because the appellate court has the power to overturn the findings.",
+      "No, because the contractor failed to object to the findings when the judge stated them in open court."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 71,
+    "question": "A defendant was convicted of assault of a federal officer and imprisoned in a federal penitentiary. While in prison, federal authorities began investigating the murder of the defendant's 11-year- old stepdaughter who was murdered two years earlier. Believing that the defendant was responsible for this killing, federal agents decided to plant an informant at the prison to befriend the defendant and possibly obtain evidence about the crime. In accord with this plan, the federal agents hired a paid informant and placed him in the prison as a fellow inmate, masquerading as an organized crime figure. The informant soon befriended the defendant and learned that he was being threatened by other inmates because of a rumor that he had killed a child. The informant then raised the subject in several conversations, but the defendant repeatedly denied any such involvement. After the defendant started receiving tough treatment from other inmates because of the rumor, the informant offered to protect the defendant but told him, \"You have to tell me the truth about what really happened you know, if you want me to help you. \" Believing that the informant would protect him from the other inmates, the defendant then admitted to the informant that he had driven his stepdaughter to the desert where he killed her. Based upon this confession, the defendant was then indicted for the first-degree murder of his stepdaughter. Prior to trial, the defendant moves to suppress the statement given to the informant. Should the defendant's motion be granted?",
+    "options": [
+      "Yes, because the informant was acting as an agent of the government in a deceptive manner.",
+      "No, because under the totality of circumstances, the informant's conduct was not inherently coercive.",
+      "Yes, because the informant was a false friend, and the defendant was tricked into making the confession.",
+      "No, because the confession was made to a fellow inmate, not to a law enforcement official.",
+      "Yes, because the defendant was not read his Miranda rights before confessing to the informant.",
+      "Yes, because the confession was coerced by the threat of physical violence, absent protection from the informant that motivated the defendant to confess.",
+      "No, because the defendant was not under direct questioning by law enforcement at the time of the confession.",
+      "No, because the confession was voluntary.",
+      "No, because the defendant was already convicted of a crime and thus lost his right to avoid self-incrimination.",
+      "No, because the defendant's safety in prison was not the responsibility of the informant."
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "law",
+    "src": "ori_mmlu-professional_law"
+  },
+  {
+    "question_id": 72,
+    "question": "A monopoly with a straight, downward-sloping demand curve has a marginal revenue curve that is",
+    "options": [
+      "initially upward sloping and then downward sloping",
+      "the same as the demand curve",
+      "in the shape of a U",
+      "the inverse of the demand curve",
+      "parallel to the demand curve",
+      "upward sloping",
+      "halfway between the demand curve and the vertical axis",
+      "initially downward sloping and then upward sloping",
+      "horizontal",
+      "perpendicular to the demand curve"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_microeconomics"
+  },
+  {
+    "question_id": 73,
+    "question": "Which of the following lists contains only policies that will close an inflationary gap?",
+    "options": [
+      "Increase the money supply; decrease taxes; increase government spending.",
+      "Maintain the money supply; decrease taxes; increase government spending.",
+      "Decrease the money supply; run a federal budget deficit.",
+      "Increase the money supply; increase taxes; reduce government spending.",
+      "Decrease the money supply; decrease taxes; increase government spending.",
+      "Increase the money supply; run a federal budget deficit.",
+      "Decrease the money supply; increase taxes; reduce government spending.",
+      "Increase the money supply; run a federal budget surplus."
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_macroeconomics"
+  },
+  {
+    "question_id": 74,
+    "question": "Suppose the market for roses is currently in equilibrium. If the supply of roses falls, while at the same time the demand for roses rises, what can you say about the price and quantity of roses in the market?",
+    "options": [
+      "Both price and quantity change is ambiguous.",
+      "Price falls and quantity rises.",
+      "Price and quantity both rise.",
+      "Price and quantity both fall.",
+      "Price rises, but the change in quantity is ambiguous.",
+      "Price and quantity remain the same.",
+      "Quantity falls, but the change in price is ambiguous.",
+      "Quantity rises, but the change in price is ambiguous.",
+      "Price rises and quantity falls.",
+      "Price falls, but the change in quantity is ambiguous."
+    ],
+    "answer": "E",
+    "answer_index": 4,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_microeconomics"
+  },
+  {
+    "question_id": 75,
+    "question": "Which of the following is NOT a major cost of inflation?",
+    "options": [
+      "Resources will be misallocated.",
+      "Wealth will be redistributed.",
+      "Savings will be discouraged.",
+      "Real incomes will fall."
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_macroeconomics"
+  },
+  {
+    "question_id": 76,
+    "question": "Which of the following choices is most likely to create the greatest decrease in real GDP?",
+    "options": [
+      "The government decreases both spending and taxes.",
+      "The government holds spending and taxes constant.",
+      "The government decreases spending matched with a decrease in taxes.",
+      "The government decreases taxes with no change in spending.",
+      "The government holds spending constant while increasing taxes.",
+      "The government increases both spending and taxes.",
+      "The government increases spending with a corresponding increase in taxes.",
+      "The government increases taxes with no increase in spending.",
+      "The government increases spending with no increase in taxes.",
+      "The government decreases spending with no change in taxes."
+    ],
+    "answer": "J",
+    "answer_index": 9,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_macroeconomics"
+  },
+  {
+    "question_id": 77,
+    "question": "Rising prices are a problem because",
+    "options": [
+      "people will stop spending money altogether.",
+      "businesses will have to pay more taxes.",
+      "it leads to a decrease in the national GDP.",
+      "the government will have to print more money.",
+      "it causes a decrease in stock market values.",
+      "money in household savings accounts can now buy fewer goods and services.",
+      "household incomes generally do not rise with prices.",
+      "the economy could run out of money.",
+      "borrowers have to repay loans with more dollars.",
+      "it will lead to an increase in unemployment rates."
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_macroeconomics"
+  },
+  {
+    "question_id": 78,
+    "question": "A student decides that, having already spent three hours studying for an exam, she should spend one more hour studying for the same exam. Which of the following is most likely true?",
+    "options": [
+      "The marginal benefit of the third hour was likely greater than the marginal benefit of the fourth hour.",
+      "The marginal cost of the third hour was likely greater than the marginal cost of the fourth hour.",
+      "The marginal benefit of the fourth hour is at least as great as the marginal cost of the fourth hour.",
+      "The marginal benefit of the fourth hour is certainly less than the marginal cost of the fourth hour.",
+      "The marginal cost of the fourth hour is at least as great as the marginal benefit of the fourth hour.",
+      "The marginal cost of the fourth hour is likely less than the marginal cost of the third hour.",
+      "The marginal benefit of the fourth hour is certainly more than the marginal cost of the fourth hour.",
+      "Without knowing the student’s opportunity cost of studying, we have no way of knowing whether or not her marginal benefits outweigh her marginal costs.",
+      "Without knowing the student's other commitments, we cannot determine the marginal cost or benefit of the fourth hour."
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "economics",
+    "src": "ori_mmlu-high_school_microeconomics"
+  },
+  {
+    "question_id": 79,
+    "question": "____________ refers to a strategic process involving stakeholder assessment to create long-term relationships with customers, while maintaining, supporting, and enhancing the natural environment.",
+    "options": [
+      "Greenwashing",
+      "Eco-branding",
+      "Recycle and reprocess management",
+      "Sustainable Development",
+      "Environmental Stewardship",
+      "Superfund reauthorization",
+      "Eco-strategy",
+      "Environmental Impact Assessment",
+      "Green Marketing",
+      "Eco-efficient Operations"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "business",
+    "src": "ori_mmlu-business_ethics"
+  },
+  {
+    "question_id": 80,
+    "question": "Cognitive ______ models such as the Theory of _________ serve to try and explain consumer behaviour, but arguably somewhat oversimplify and overestimate individual ________.",
+    "options": [
+      "Attitudinal, Social Identity, Group norms",
+      "Behavioral, Cognitive Dissonance, Emotions",
+      "Attitudinal, Planned Behaviour, Social pressures",
+      "Attitudinal, Cognitive Dissonance, Rationality",
+      "Decision, Social Identity, Emotions",
+      "Decision, Market equilibrium, Rationality",
+      "Decision, Planned behaviour, Rationality",
+      "Decision, Social Identity, Group norms",
+      "Behavioral, Planned Behaviour, Social pressures",
+      "Attitudinal, Market equilibrium, Social pressures"
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "business",
+    "src": "ori_mmlu-business_ethics"
+  },
+  {
+    "question_id": 81,
+    "question": "________________reflect a purchaser's high level of involvement in the purchase decision. There is high perceived risk in these decisions so consumers spend a great deal of time, care, and energy searching, formulating, and making the final decision.",
+    "options": [
+      "Services.",
+      "Perishable items.",
+      "Impulse purchases.",
+      "Non-durable goods.",
+      "Discounted items.",
+      "Fast-moving consumer goods.",
+      "Durable goods.",
+      "Generic products.",
+      "Convenience products."
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "business",
+    "src": "ori_mmlu-marketing"
+  },
+  {
+    "question_id": 82,
+    "question": "Which of the following is not part of Schein's model of the formation of culture?",
+    "options": [
+      "Group dynamics",
+      "Norms",
+      "Leadership style",
+      "Communication methods",
+      "Shared values",
+      "Pre-conceptions",
+      "Decision-making processes",
+      "Shared beliefs"
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "business",
+    "src": "ori_mmlu-management"
+  },
+  {
+    "question_id": 83,
+    "question": "What is a paradigm?",
+    "options": [
+      "A research methodology",
+      "A practical application of a theory",
+      "An illustration",
+      "An experimental hypothesis",
+      "A statistical analysis",
+      "A proven scientific law",
+      "A theoretical model",
+      "A theoretical assumption",
+      "A philosophical belief",
+      "An example serving as a model"
+    ],
+    "answer": "J",
+    "answer_index": 9,
+    "category": "business",
+    "src": "ori_mmlu-management"
+  },
+  {
+    "question_id": 84,
+    "question": " If an advertisement shows the interior of a train with comfortable seats and plenty of space yet a customer boards a train only to find a lack of space and hard seating. This is an example of:",
+    "options": [
+      "GAP 9-the gap between service delivery and customer satisfaction.",
+      "GAP 2-the gap between management perception and service-quality specification",
+      "GAP 4-the gap between service delivery and external communications.",
+      "GAP 5-the gap between customer perception and customer expectation.",
+      "GAP 7-the gap between service quality and customer perception.",
+      "GAP 3-the gap between service-quality specifications and service delivery.",
+      "GAP 10-the gap between service quality and service delivery.",
+      "GAP1-the gap between the customer's expectations and management perception.",
+      "GAP 6-the gap between customer expectation and management perception.",
+      "GAP 8-the gap between external communications and customer expectation."
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "business",
+    "src": "ori_mmlu-marketing"
+  },
+  {
+    "question_id": 85,
+    "question": "This question refers to the following information.\nOur leaders talk about stopping aggression from the north, but this was a struggle among groups of Vietnamese until we intervened. We seem bent upon saving the Vietnamese from Ho Chi Minh even if we have to kill them and demolish their country to do it. As the native people survey bombed-out villages, women and children burned by napalm, rice crops destroyed and cities overrun with our military personnel, they are doubtless saying secretly of the Vietcong guerillas and of the American forces, \"A plague on both your houses.\" … Stop the bombing, north and south, end search and destroy offensive sweeps, and confine our military action to holding operations on the ground. Bombing the north has failed to halt or seriously check the flow of troops to the south and may, in fact, have prompted a much greater war effort by Hanoi.\n—Senator George McGovern, \"The Lessons of Vietnam,\" April 25, 1967\nPolitical discord during the Vietnam War most closely resembled the political dissensions during which of the following?",
+    "options": [
+      "The American Revolutionary War",
+      "World War I",
+      "The War of 1812",
+      "The American Civil War",
+      "The Cold War",
+      "The Korean War",
+      "World War II",
+      "The Spanish-American War",
+      "The Mexican War",
+      "The Persian Gulf War"
+    ],
+    "answer": "I",
+    "answer_index": 8,
+    "category": "history",
+    "src": "ori_mmlu-high_school_us_history"
+  },
+  {
+    "question_id": 86,
+    "question": "This question refers to the following information.\n\"Whereas the laws and treaties of the United States, without interfering with the free expression of opinion and sympathy, or with the commercial manufacture or sale of arms or munitions of war, nevertheless impose upon all persons who may be within their territory and jurisdiction the duty of an impartial neutrality during the existence of the contest; And Whereas it is the duty of a neutral government not to permit or suffer the making of its waters subservient to the purposes of war;\n\"Now, Therefore, I, Woodrow Wilson, President of the United States of America, in order to preserve the neutrality of the United States…do hereby declare and proclaim….\n\"That the statutes and the treaties of the United States and the law of nations alike require that no person, within the territory and jurisdiction of the United States, shall take part, directly or indirectly, in the said wars, but shall remain at peace with all of the said belligerents, and shall maintain a strict and impartial neutrality….\"\nWoodrow Wilson, 1914\nWhich of the following statements about the Treaty of Versailles is true?",
+    "options": [
+      "The United States Senate approved it without any reservations.",
+      "The United States Senate rejected it because it treated Germany too leniently.",
+      "The United States Senate rejected it because it required increased American involvement in European affairs.",
+      "The United States Senate approved it, with reservations concerning the League of Nations.",
+      "The United States Senate approved it because it required decreased American involvement in European affairs.",
+      "The United States Senate approved it, with reservations concerning the division of Eastern Europe.",
+      "It was voted down by the United States Senate because it did not include the provision for an impartial neutrality.",
+      "It was unanimously approved by the United States Senate.",
+      "The United States Senate rejected it because it did not address the issue of neutrality.",
+      "It was never voted on by the United States Senate."
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "history",
+    "src": "ori_mmlu-high_school_us_history"
+  },
+  {
+    "question_id": 87,
+    "question": "This question refers to the following information.\n\"The seeds of totalitarian regimes are nurtured by misery and want. They spread and grow in the evil soil of poverty and strife. They reach their full growth when the hope of a people for a better life has died. We must keep that hope alive. . . . Great responsibilities have been placed upon us by the swift movement of events. . . . I am confident that the Congress will face these responsibilities squarely.\"\n—President Harry S. Truman, 1947\nThe passage above can best be seen as providing a rationale for",
+    "options": [
+      "the policy of containment.",
+      "the start of the Cold War.",
+      "the establishment of the United Nations.",
+      "participation in the Atlantic Charter.",
+      "the creation of NATO.",
+      "embarking on a \"roll-back\" of communism.",
+      "the principle of \"massive retaliation.\"",
+      "the policy of détente."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "history",
+    "src": "ori_mmlu-high_school_us_history"
+  },
+  {
+    "question_id": 88,
+    "question": "This question refers to the following information.\nSource 1:\n\"Moreover, Sir, in our Kingdoms there is another great inconvenience which is of little service to God, and this is that many of our people, keenly desirous as they are of the wares and things of your Kingdoms, which are brought here by your people, and in order to satisfy their voracious appetite, seize many of our people, freed and exempt men, and very often it happens that they kidnap even noblemen and our relatives, and take them to be sold to the white men who are in our kingdoms.\"\nLetter from King Afonso I of Kongo to King John III of Portugal, 1526\nSource 2:\n\"This expedition has cost us much: it would be unreasonable to send it home with empty hands. Although our [principal] wish is to serve God and the pleasure of the king of Kongo, none the less you will make him understand—as though speaking in our name—what he should do to fill the ships, whether with slaves, or copper, or ivory.\"\nInstructions from King Manuel of Portugal to his envoy in Kongo, 1512\nThe two letters best support which of the following conclusions?",
+    "options": [
+      "Diplomatic relations between Portugal and Kongo were often cordial.",
+      "Kongolese noblemen were frequently taken as slaves by the Portuguese.",
+      "Trade between Portugal and Kongo was highly regulated.",
+      "Trade between Portugal and Kongo was brisk with both parties."
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "history",
+    "src": "ori_mmlu-high_school_world_history"
+  },
+  {
+    "question_id": 89,
+    "question": "This question refers to the following information.\nYou are the United States,\nyou are the future invader\nof the native America that has Indian blood,\nthat still prays to Jesus Christ and still speaks Spanish.\n. . .\nyou are Alexander-Nebuchadnezzar.\nYou think that life is fire,\nthat progress is eruption,\nthat wherever you shoot\nyou hit the future.\nNo.\n. . .\nBut our America, that has had poets\nsince the ancient times of Netzahualcoyotl,\n. . .\nthat consulted the stars, that knew Atlantis\nwhose resounding name comes to us from Plato,\nthat since the remote times of its life\nhas lived on light, on fire, on perfume, on love,\nAmerica of the great Montezuma, of the Inca,\nthe fragrant America of Christopher Columbus,\nCatholic America, Spanish America,\nthe America in which noble Cuauhtémoc said:\n\"I'm not in a bed of roses\", that America\nthat trembles in hurricanes and lives on love,\nit lives, you men of Saxon eyes and barbarous soul.\nAnd it dreams. And it loves, and it vibrates, and it is the daughter of the sun.\nBe careful. Viva Spanish America!\nThere are a thousand cubs loosed from the Spanish lion.\nRoosevelt, one would have to be, through God himself,\nthe-fearful rifleman and strong hunter,\nto manage to grab us in your iron claws.\nAnd, although you count on everything, you lack one thing: God!\n—Adapted from \"To Roosevelt\" by Ruben Dario, 1904\nWhat events might have prompted the poet to compose this piece?",
+    "options": [
+      "U.S. involvement in the Haitian Revolution",
+      "U.S. involvement in Panama’s independence",
+      "The U.S. involvement in the Mexican Revolution",
+      "The embargo of Cuba after Castro’s revolution",
+      "The annexation of Texas by the U.S.",
+      "The establishment of the Monroe Doctrine",
+      "The discovery of the Zimmerman Telegram",
+      "The Louisiana Purchase"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "history",
+    "src": "ori_mmlu-high_school_world_history"
+  },
+  {
+    "question_id": 90,
+    "question": "Gauthier claims that there is nothing for practical rationality to be besides:",
+    "options": [
+      "logical justification.",
+      "epistemic justification.",
+      "existential justification.",
+      "theoretical justification.",
+      "moral justification.",
+      "emotional justification.",
+      "deliberative justification.",
+      "an illusion.",
+      "spiritual justification.",
+      "aesthetic justification."
+    ],
+    "answer": "G",
+    "answer_index": 6,
+    "category": "philosophy",
+    "src": "ori_mmlu-philosophy"
+  },
+  {
+    "question_id": 91,
+    "question": "Baier argues that genuine moral rules:",
+    "options": [
+      "must take into account the interests of all living beings.",
+      "make take into account the interests of all sentient beings.",
+      "should primarily focus on preserving the natural environment.",
+      "must align with societal norms and expectations.",
+      "are based solely on religious doctrines.",
+      "must be for the good of human beings.",
+      "should be universally applicable regardless of cultural differences.",
+      "must only consider the interests of the individual making the moral decision.",
+      "are primarily directed toward promoting self-interest.",
+      "are only applicable to those who choose to follow them."
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "philosophy",
+    "src": "ori_mmlu-philosophy"
+  },
+  {
+    "question_id": 92,
+    "question": "Cicero argues that we will never go morally astray if we:",
+    "options": [
+      "follow religious edicts.",
+      "follow historical precedents.",
+      "follow the teachings of philosophers.",
+      "follow Nature as our guide.",
+      "follow our conscience.",
+      "follow the laws.",
+      "follow our personal desires.",
+      "follow our instincts.",
+      "follow societal norms.",
+      "follow our friends and family."
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "philosophy",
+    "src": "ori_mmlu-philosophy"
+  },
+  {
+    "question_id": 93,
+    "question": "What are the two principal answers to whether life has any meaning for us?",
+    "options": [
+      "the pessimist'sview and the optimist'sview",
+      "the existentialist's view and the nihilist's view",
+      "the deterministic view and the free will view",
+      "the materialistic view and the spiritual view",
+      "the empiricist's view and the rationalist's view",
+      "the external view and the internal view",
+      "the theistic view and the agnostics view",
+      "the monist's view and the dualist's view",
+      "the relativist's view and the absolutist's view",
+      "the religious view and the liberal view"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "philosophy",
+    "src": "ori_mmlu-philosophy"
+  },
+  {
+    "question_id": 94,
+    "question": "How does Stevenson respond to the objection that his theory does not account for the kind of goodness that is objective and is known a priori?",
+    "options": [
+      "He claims he does not understand such a property.",
+      "He claims that his theory is still in the process of development.",
+      "None of the above.",
+      "He claims to have proven that such a property does not exist.",
+      "He claims that the objection is irrelevant to his theory.",
+      "He claims that such a property is subjective, not objective.",
+      "He claims that the objection is based on a misunderstanding.",
+      "He claims to have offered an account of just such a property.",
+      "He does not respond to the objection.",
+      "He claims that his theory does account for this kind of goodness."
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "philosophy",
+    "src": "ori_mmlu-philosophy"
+  },
+  {
+    "question_id": 95,
+    "question": "Consider a tank used in certain hydrodynamic experiments. After one experiment the tank contains $200 \\mathrm{~L}$ of a dye solution with a concentration of $1 \\mathrm{~g} / \\mathrm{L}$. To prepare for the next experiment, the tank is to be rinsed with fresh water flowing in at a rate of $2 \\mathrm{~L} / \\mathrm{min}$, the well-stirred solution flowing out at the same rate. Find the time that will elapse before the concentration of dye in the tank reaches $1 \\%$ of its original value.",
+    "options": [
+      " 460.5 min",
+      "520 min",
+      "690 min",
+      "600 min",
+      "385 min",
+      "345 min",
+      "300 min",
+      "500 min",
+      "550 min",
+      "420 min"
+    ],
+    "answer": "A",
+    "answer_index": 0,
+    "category": "math",
+    "src": "scibench-diff"
+  },
+  {
+    "question_id": 96,
+    "question": " In Carruther's view, the justification for moral criticism for things that we do (or don't to do) to an animal derives from",
+    "options": [
+      "the animal's lifespan.",
+      "the animal's direct moral standing.",
+      "societal norms and expectations.",
+      "the animal's role in the ecosystem.",
+      "the animal's inability to defend itself.",
+      "the bad qualities of character that our actions evince.",
+      "the animal's intelligence level.",
+      "the animal's capacity for emotion."
+    ],
+    "answer": "F",
+    "answer_index": 5,
+    "category": "philosophy",
+    "src": "ori_mmlu-moral_disputes"
+  },
+  {
+    "question_id": 97,
+    "question": "The unaided eye can perceive objects which have a diameterof 0.1 mm. What is the diameter in inches?",
+    "options": [
+      "0.007874 inches",
+      "0.000039 inches",
+      "0.039370 inches",
+      "3.94 ×10^3 inches",
+      "0.000787 inches",
+      "5.8 ×10^3 inches",
+      "0.000394 inches",
+      "0.003937 inches",
+      "2.54 ×10^3 inches",
+      "1.2 ×10^3 inches"
+    ],
+    "answer": "D",
+    "answer_index": 3,
+    "category": "chemistry",
+    "src": "stemez-Chemistry"
+  },
+  {
+    "question_id": 98,
+    "question": "What is utility? What is marginal utility?",
+    "options": [
+      "Utility is the measure of usefulness or pleasure. Marginal utility is the decrease in usefulness or pleasure as more units are consumed.",
+      "Utility is the quantity of a product. Marginal utility is the increase in quantity which a consumer gets from an additional unit of a specific good.",
+      "Utility is the power to satisfy a want. Marginal utility is the extra utility, or satisfaction, which a consumer derives from an additional unit of a specific good.",
+      "Utility is the duration of time a product can be used. Marginal utility is the increase in usage time with each additional unit consumed.",
+      "Utility is the measure of scarcity of a good. Marginal utility is the change in scarcity when one more unit of the good is produced.",
+      "Utility is the weight of a product. Marginal utility is the additional weight a consumer perceives when purchasing an extra unit of a specific good.",
+      "Utility is the power to make a good. Marginal utility is the extra power which a consumer derives from an additional unit of a specific good.",
+      "Utility is the total satisfaction received from consuming a certain amount of a good. Marginal utility is the satisfaction gained from the last unit consumed, holding the level of consumption constant.",
+      "Utility is the price of a good. Marginal utility is the increase in price which a consumer pays for an additional unit of a specific good.",
+      "Utility is the demand for a product. Marginal utility is the change in demand as the supply of a specific good increases."
+    ],
+    "answer": "C",
+    "answer_index": 2,
+    "category": "economics",
+    "src": "stemez-Economics"
+  },
+  {
+    "question_id": 99,
+    "question": "What are the major factors of production?",
+    "options": [
+      "Land, machinery, investment capital, business strategy",
+      "Natural resources, industrial facilities, financial assets, human resources",
+      "Factories, machines, raw materials, energy",
+      "Land, labor, capital, entrepreneurship",
+      "Education, health, transport, communication networks",
+      "Investment, technology, skilled labor, business management",
+      "Buildings, machinery, computers, innovation",
+      "Infrastructure, raw labor, patents, strategic planning",
+      "Money, workers, technology, management",
+      "Capital goods, labor force, natural resources, entrepreneurial talents"
+    ],
+    "answer": "J",
+    "answer_index": 9,
+    "category": "economics",
+    "src": "stemez-Economics"
+  },
+  {
+    "question_id": 100,
+    "question": "The compound calciumcyanamide, CaCN_2, is prepared in con-siderable amounts for use as a solid fertilizer. The solid mixed with the water in the soil slowly adds ammonia and CaCO_3 to the soil. CaCN_2 + 3H_2O CaCO_3 + 2NH3 What weight of ammonia is produced as 200 kg of CaCN2 reacts?",
+    "options": [
+      "200 kg of ammonia",
+      "85 kg of ammonia",
+      "40 kg of ammonia",
+      "150 kg of ammonia",
+      "100 kg of ammonia",
+      "120 kg of ammonia",
+      "60 kg of ammonia",
+      "170 kg of ammonia",
+      "50 kg of ammonia",
+      "95 kg of ammonia"
+    ],
+    "answer": "B",
+    "answer_index": 1,
+    "category": "chemistry",
+    "src": "stemez-Chemistry"
+  }
+]
